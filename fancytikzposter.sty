@@ -1,0 +1,1410 @@
+% fancytikzposter.sty, version 2.1
+% this is the package file for fancy posters with TikZ 
+% Original template created by Elena Botoeva [botoeva@inf.unibz.it], June 2012
+% see more info at http://www.inf.unibz.it/~ebotoeva/fancytikzposter.html
+% 
+% This file is distributed under the Creative Commons Attribution-NonCommercial 2.0
+% Generic (CC BY-NC 2.0) license
+% http://creativecommons.org/licenses/by-nc/2.0/ 
+
+\ProvidesPackage{fancytikzposter}
+
+\RequirePackage{ifthen}
+
+
+\RequirePackage{tikz}
+\usetikzlibrary{shapes,decorations,shadows}
+\usetikzlibrary{shapes.callouts}
+\usetikzlibrary{calc}
+\usetikzlibrary{fadings}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.shapes}
+%\usetikzlibrary{patterns}
+%\usetikzlibrary{backgrounds}
+
+\setlength{\unitlength}{1cm}%
+
+
+\usepackage{amssymb,amsmath}
+
+
+%%%%% -------- Parameters that change the layout of the poster --------- %%%%%
+%% margin for the geometry package
+\newcommand{\margin}{4}
+
+%% the space between the blocks
+\newcommand{\blockspacing}{2}
+
+%% the height of the title stripe in block nodes, decrease it to save space
+\newcommand{\blocktitleheight}{3}
+
+%% the number of columns in the poster
+\newcommand{\colnumber}{2}
+
+%% the space between two groups of authors from different institution
+\newcommand{\instituteshift}{10}
+
+%% the code of the template
+\newcommand{\template}{1}
+
+%% the code of the template for the colors, background picture and title
+\newcommand{\colortemplate}{1}
+\newcommand{\backgroundtemplate}{1}
+\newcommand{\titletemplate}{1}
+%% the code of the template for each different kind of node
+\newcommand{\blocknodetemplate}{1}
+\newcommand{\innerblocktemplate}{1}
+\newcommand{\plainblocktemplate}{1}
+
+%% the height of the head drawing on top 
+%% applicable to templates N3, 4 and 5
+\newcommand{\headdrawingheight}{16}
+
+
+
+
+\newcommand{\setmargin}[1]{
+  \renewcommand{\margin}{#1}
+}
+
+\newcommand{\setblockspacing}[1]{
+  \renewcommand{\blockspacing}{#1}
+}
+
+\newcommand{\setblocktitleheight}[1]{
+  \renewcommand{\blocktitleheight}{#1}
+}
+
+\newcommand{\setcolumnnumber}[1]{
+  \renewcommand{\colnumber}{#1}
+}
+
+\newcommand{\setinstituteshift}[1]{
+  \renewcommand{\instituteshift}{#1}
+}
+
+\newcommand{\usecolortemplate}[1]{
+  \renewcommand{\colortemplate}{#1}
+  \initializecolors
+}
+\newcommand{\usebackgroundtemplate}[1]{
+  \renewcommand{\backgroundtemplate}{#1}
+}
+\newcommand{\usetitletemplate}[1]{
+  \renewcommand{\titletemplate}{#1}
+}
+\newcommand{\useblocknodetemplate}[1]{
+  \renewcommand{\blocknodetemplate}{#1}
+}
+\newcommand{\useinnerblocktemplate}[1]{
+  \renewcommand{\innerblocktemplate}{#1}
+}
+\newcommand{\useplainblocktemplate}[1]{
+  \renewcommand{\plainblocktemplate}{#1}
+}
+
+\newcommand{\usetemplate}[1]{
+  \renewcommand{\template}{#1}
+ 
+  \initializenodetemplates
+
+  \initializecolors
+}
+
+
+\newcommand{\setheaddrawingheight}[1]{
+  \renewcommand{\headdrawingheight}{#1}
+}
+
+
+\newcommand{\initializenodetemplates}{
+  \usecolortemplate{\template}
+  \usebackgroundtemplate{\template}
+  \usetitletemplate{\template}
+  \useblocknodetemplate{\template}
+  \useinnerblocktemplate{1}
+  \useplainblocktemplate{\template}
+
+  \ifthenelse{\equal{\template}{6}}{
+    % the oriental style
+    \definecolor{darkgrayoriental}{HTML}{333333}
+    \definecolor{redoriental}{HTML}{CC0030}
+    \definecolor{lightyelloworiental}{HTML}{FFFFCC}
+    \colorlet{colorone}{darkgrayoriental}
+    \colorlet{colortwo}{redoriental}
+    \colorlet{colorthree}{lightyelloworiental}
+    
+    \usecolortemplate{5}
+    \usebackgroundtemplate{6}
+    \usetitletemplate{2}
+    \useblocknodetemplate{3}
+    \useplainblocktemplate{3}
+    \useinnerblocktemplate{2}
+  }{
+    \ifthenelse{\equal{\template}{5}}{
+      \usecolortemplate{4}
+      \usebackgroundtemplate{5}
+      \usetitletemplate{2}
+      \useblocknodetemplate{5}
+      \useplainblocktemplate{4}
+    }{
+      \ifthenelse{\equal{\template}{4}}{    
+        \usetitletemplate{2}
+      }{
+        \ifthenelse{\equal{\template}{3}}{    
+          \usetitletemplate{2}
+          \useinnerblocktemplate{2}
+        }{}
+      }
+    }
+  }
+}
+
+
+
+%%%%% -------- Colors --------- %%%%%
+\definecolor{colorone}{HTML}{116699}
+\definecolor{colortwo}{HTML}{cccccc}
+\definecolor{colorthree}{HTML}{cc6633}% 991111} %
+\definecolor{textcolor}{HTML}{000000}   
+
+\colorlet{backgrounddarkcolor}{colorone!70!black}
+\colorlet{backgroundlightcolor}{colorone!70!}
+\colorlet{titletextcolor}{textcolor}
+\colorlet{titlefillcolor}{white}
+\colorlet{titledrawcolor}{colortwo}
+\colorlet{blocktextcolor}{textcolor}
+\colorlet{blockfillcolor}{white}
+\colorlet{blocktitletextcolor}{colorone}
+\colorlet{blocktitlefillcolor}{colortwo} 
+\colorlet{plainblocktextcolor}{textcolor}
+\colorlet{plainblockfillcolor}{colorthree!40}
+\colorlet{plainblocktitletextcolor}{textcolor}
+\colorlet{plainblocktitlefillcolor}{colorthree!60}
+\colorlet{innerblocktextcolor}{textcolor}
+\colorlet{innerblockfillcolor}{white}
+\colorlet{innerblocktitletextcolor}{white}
+\colorlet{innerblocktitlefillcolor}{colorthree}
+
+\renewcommand{\labelitemi}{\textcolor{colorone}{$\bullet$}}
+\renewcommand{\labelitemii}{\textcolor{colorone}{$\rightarrow$}}%\blacktriangleright$}}
+
+
+\newcommand{\settitletextcolor}[1]{
+  \colorlet{titletextcolor}{#1}
+}
+
+\newcommand{\settitlefillcolor}[1]{
+  \colorlet{titlefillcolor}{#1}
+}
+
+\newcommand{\settitledrawcolor}[1]{
+  \colorlet{titledrawcolor}{#1}
+}
+
+\newcommand{\setblocktextcolor}[1]{
+  \colorlet{blocktextcolor}{#1}
+}
+
+\newcommand{\setblockfillcolor}[1]{
+  \colorlet{blockfillcolor}{#1}
+}
+
+\newcommand{\setblocktitletextcolor}[1]{
+  \colorlet{blocktitletextcolor}{#1}
+}
+
+\newcommand{\setblocktitlefillcolor}[1]{
+  \colorlet{blocktitlefillcolor}{#1}
+}
+
+\newcommand{\setplainblocktextcolor}[1]{
+  \colorlet{plainblocktextcolor}{#1}
+}
+
+\newcommand{\setplainblockfillcolor}[1]{
+  \colorlet{plainblockfillcolor}{#1}
+}
+
+\newcommand{\setplainblocktitletextcolor}[1]{
+  \colorlet{plainblocktitletextcolor}{#1}
+}
+
+\newcommand{\setplainblocktitlefillcolor}[1]{
+  \colorlet{plainblocktitlefillcolor}{#1}
+}
+
+\newcommand{\setinnerblocktextcolor}[1]{
+  \colorlet{innerblocktextcolor}{#1}
+}
+
+\newcommand{\setinnerblockfillcolor}[1]{
+  \colorlet{innerblockfillcolor}{#1}
+}
+
+\newcommand{\setinnerblocktitletextcolor}[1]{
+  \colorlet{innerblocktitletextcolor}{#1}
+}
+
+\newcommand{\setinnerblocktitlefillcolor}[1]{
+  \colorlet{innerblocktitlefillcolor}{#1}
+}
+
+\newcommand{\setbackgrounddarkcolor}[1]{
+  \colorlet{backgrounddarkcolor}{#1}
+}
+
+\newcommand{\setbackgroundlightcolor}[1]{
+  \colorlet{backgroundlightcolor}{#1}
+}
+
+\newcommand{\setfirstcolor}[1]{
+  \colorlet{colorone}{#1}
+  \initializecolors
+}
+
+\newcommand{\setsecondcolor}[1]{
+  \colorlet{colortwo}{#1}
+  \initializecolors
+}
+
+\newcommand{\setthirdcolor}[1]{
+  \colorlet{colorthree}{#1}
+  \initializecolors
+}
+
+\newcommand{\setnormaltextcolor}[1]{
+  \colorlet{textcolor}{#1}
+  \initializecolors
+}
+
+\newcommand{\initializecolors}{
+  %%%%% template N5
+  \ifthenelse{\equal{\colortemplate}{5}}{
+    % the oriental style
+    \setbackgrounddarkcolor{colorone}
+    \setbackgroundlightcolor{colorone!80}
+    \settitletextcolor{colorthree}
+    \settitlefillcolor{colortwo}
+    \settitledrawcolor{colortwo}
+    \setblocktextcolor{textcolor}
+    \setblockfillcolor{colortwo}
+    \setblocktitletextcolor{colorthree}
+    \setblocktitlefillcolor{colorone} 
+    \setplainblocktextcolor{textcolor}
+    \setplainblockfillcolor{colorthree}
+    \setplainblocktitletextcolor{textcolor}
+    \setplainblocktitlefillcolor{colorthree}
+    \setinnerblocktextcolor{textcolor}
+    \setinnerblockfillcolor{colorthree}
+    \setinnerblocktitletextcolor{colorone}
+    \setinnerblocktitlefillcolor{colorthree}
+  }{
+
+    %%%%% template N4
+  \ifthenelse{\equal{\colortemplate}{4}}{
+    
+    \setbackgrounddarkcolor{colorone}
+    \setbackgroundlightcolor{white}
+    \settitletextcolor{white}
+    \settitlefillcolor{white}% non applicable
+    \settitledrawcolor{white}% non applicable
+    \setblocktextcolor{textcolor}
+    \setblockfillcolor{white}
+    \setblocktitletextcolor{white}
+    \setblocktitlefillcolor{colorone!80!black} 
+    \setplainblocktextcolor{black}
+    \setplainblockfillcolor{colorthree!50!}
+    \setplainblocktitletextcolor{black}
+    \setplainblocktitlefillcolor{colorthree}
+    \setinnerblocktextcolor{textcolor}
+    \setinnerblockfillcolor{white}
+    \setinnerblocktitletextcolor{white}
+    \setinnerblocktitlefillcolor{colorthree}
+  }{
+    
+    %%%%% template N3
+    \ifthenelse{\equal{\colortemplate}{3}}{
+      
+      \setbackgrounddarkcolor{colorone!70!black}
+      \setbackgroundlightcolor{colorone!50!colorthree!30!}
+      \settitletextcolor{white}
+      \settitlefillcolor{white}% non applicable
+      \settitledrawcolor{white}% non applicable
+      \setblocktextcolor{textcolor}
+      \setblockfillcolor{colortwo!40!}
+      \setblocktitletextcolor{white}
+      \setblocktitlefillcolor{colorthree!80!colortwo!80!black}
+      \setplainblocktextcolor{textcolor}
+      \setplainblockfillcolor{colortwo}
+      \setplainblocktitletextcolor{textcolor}
+      \setplainblocktitlefillcolor{colortwo}
+      \setinnerblocktextcolor{textcolor}
+      \setinnerblockfillcolor{colortwo}
+      \setinnerblocktitletextcolor{textcolor}
+      \setinnerblocktitlefillcolor{colortwo}
+    }{       
+      
+      %%%%% template N2
+      \ifthenelse{\equal{\colortemplate}{2}}{
+        
+        \setbackgrounddarkcolor{colorone!40!}
+        \setbackgroundlightcolor{colorone!20!}
+        \settitletextcolor{textcolor}
+        \settitlefillcolor{white}% non applicable
+        \settitledrawcolor{white}% non applicable
+        \setblocktextcolor{textcolor}
+        \setblockfillcolor{white!90!colortwo}
+        \setblocktitletextcolor{colorone}
+        \setblocktitlefillcolor{colortwo!60!black} %the color of the border
+        \setplainblocktextcolor{textcolor}
+        \setplainblockfillcolor{colorthree!30!}
+        \setplainblocktitletextcolor{colorthree}
+        \setplainblocktitlefillcolor{colorthree!30!}
+        \setinnerblocktextcolor{textcolor}
+        \setinnerblockfillcolor{white}
+        \setinnerblocktitletextcolor{white}
+        \setinnerblocktitlefillcolor{colorthree}
+      }{ 
+        
+       %%%%% template N1
+        %% the default template
+        % \ifthenelse{\equal{\colortemplate}{1}}{
+       
+        \setbackgrounddarkcolor{colorone!70!black}
+        \setbackgroundlightcolor{colorone!70!}
+        \settitletextcolor{textcolor}
+        \settitlefillcolor{white}
+        \settitledrawcolor{colortwo}
+        \setblocktextcolor{textcolor}
+        \setblockfillcolor{white}
+        \setblocktitletextcolor{colorone}
+        \setblocktitlefillcolor{colortwo} 
+        \setplainblocktextcolor{textcolor}
+        \setplainblockfillcolor{colorthree!40!}
+        \setplainblocktitletextcolor{textcolor}
+        \setplainblocktitlefillcolor{colorthree!60!}
+        \setinnerblocktextcolor{textcolor}
+        \setinnerblockfillcolor{white}
+        \setinnerblocktitletextcolor{white}
+        \setinnerblocktitlefillcolor{colorthree}
+        % }{}
+      }            
+    }
+  }
+}
+  
+  \ifthenelse{\equal{\template}{5}}{
+    \setblocktitletextcolor{colorone!80!black}
+  } {}
+}
+
+
+
+
+%%%%% -------- the background picture --------- %%%%%
+\usepackage{eso-pic}
+\newcommand\BackgroundPicture{
+  \put(-14,0){
+    \parbox[b][1.05\paperheight]{1.05\paperwidth}{%
+      \centering %
+      \begin{tikzpicture} %
+
+        \coordinate (topleft) at (0,\paperheight);
+        \coordinate (topright) at ($(\paperwidth,\paperheight)+(0.5,0)$);
+        \coordinate (lefttoright) at (\paperwidth,0);
+        \coordinate (bottomleft) at (0,0);
+        \coordinate (bottomright) at ($(\paperwidth,0)+(0.5,0)$);
+        \coordinate (head) at (0,\headdrawingheight);
+        \coordinate (foot) at (0,\margin);
+        
+        \clip (0,0) rectangle ($(topright)+(6,0)$); 
+        
+        %%%%% template N6
+        \ifthenelse{\equal{\backgroundtemplate}{6}}{%
+          \draw[draw=none, fill=backgrounddarkcolor] %
+          (bottomleft) rectangle (topright);
+
+
+          % % \foreach \a in {10,20,...,170}{%
+          % %   \draw[colortwo,%titletextcolor,
+          % %   decorate, decoration={random steps,segment
+          % %     length=6cm,amplitude=2cm}, rounded corners=40, line width=0.2cm]
+          % %   ($(bottomright)-0.0*(lefttoright)+ (0,2)$) -- ($(bottomright)
+          % %   -0.0*(lefttoright) +(0,2)!1!\a:(\paperheight+rnd*\paperwidth,0)$); }
+
+
+          \draw[draw=none, fill=backgroundlightcolor]%
+          ($(topleft)-(head)$) rectangle (topright);
+
+          \foreach \col in {colortwo,colorthree}%
+          { %
+            \foreach \line in {{($(topleft)-(head)$) -- ($(topright)-(head)$)},
+              {($(topleft)+(0.5*\margin,0)$) -- ($(bottomleft)+(0.5*\margin,0)$)}}%
+            {%
+              \draw[color=\col, decorate, decoration={random steps,segment
+                length=6cm, amplitude=2cm}, rounded corners=40, line width=0.2cm]
+              \line ; %
+            }%
+          }%
+
+        }{
+
+          %%%%% template N5
+          \ifthenelse{\equal{\backgroundtemplate}{5}}{%
+            \draw[draw=none, %
+            bottom color=backgrounddarkcolor!55!backgroundlightcolor, %
+            top color=backgrounddarkcolor!35!backgroundlightcolor ] %
+            (bottomleft) rectangle (topright);
+
+            \draw[draw=none, left color=backgrounddarkcolor!60!black,%
+            right color=backgrounddarkcolor!95!backgroundlightcolor]%
+            (topright) -- (topleft) -- %
+            ($(topleft) - (head)-(0,6)$) .. controls %
+            ($(topleft) - (head)-(0,6) + 0.25*(lefttoright) + (0,9)$) and %
+            ($(topright) - (head) - 0.5*(lefttoright) - (-10,16)$) .. %
+            ($(topright) - (head)$) -- cycle;
+            
+            \draw[draw=none, left color=backgrounddarkcolor,
+            right color=backgroundlightcolor]
+            ($(topleft) - (head)-(0,2)$) .. controls %
+            ($(topleft) - (head)-(-6,3) + 0.25*(lefttoright) + (0,10)$) and
+            ($(topright) - (head) - 0.25*(lefttoright) - (-6,17)$).. %
+            ($(topright) - (head)$) .. controls %
+            ($(topright) - (head) - 0.25*(lefttoright)-(-7,19)$) and %
+            ($(topleft) - (head)-(-9,5) + 0.25*(lefttoright) + (0,10)$) .. %
+            ($(topleft) - (head)-(0,4)$);
+
+            \draw[draw=none, left color=backgroundlightcolor, 
+            right color=backgrounddarkcolor!90!black]
+            ($(topleft) - (head)-(0,2)$) .. controls %
+            ($(topleft) - (head)-(-6,3) + 0.25*(lefttoright) + (0,10)$) and
+            ($(topright) - (head)+(0,6) - 0.25*(lefttoright) - (-6,20)$)..%
+            ($(topright) - (head)+(0,6)$) -- %
+            ($(topright) - (head)$) .. controls %
+            ($(topright) - (head) - 0.25*(lefttoright) - (-6,17)$) and %
+            ($(topleft) - (head)-(-8,4) + 0.25*(lefttoright) + (0,10)$) .. %
+            ($(topleft) - (head)-(0,2)$);
+
+          }{
+            
+            %%%%% template N4
+            \ifthenelse{\equal{\backgroundtemplate}{4}}{%
+              \draw[draw=none, %
+              bottom color=backgrounddarkcolor!55!backgroundlightcolor, %
+              top color=backgrounddarkcolor!35!backgroundlightcolor ] %
+              (bottomleft) rectangle (topright);
+
+              \draw[draw=none, bottom color=backgrounddarkcolor!60!black, %
+              top color=backgrounddarkcolor!90!backgroundlightcolor] %
+              (topleft) -- ($(topleft)-0.2*(head)$) .. controls
+              ($(topleft)-(head)+(1,0)$)
+              .. ($(topleft)-(head)+0.2*(lefttoright)$) --
+              ($(topleft)-(head)+0.8*(lefttoright)$) .. controls
+              ($(topright)-(head)-(1,0)$) .. %
+              ($(topright)-0.2*(head)$) -- (topright) -- cycle;
+
+              \draw[draw=none, right color=backgroundlightcolor, left
+              color=backgrounddarkcolor]
+              ($(topleft)-(head)+0.8*(lefttoright)$) .. controls
+              ($(topleft)-(head)+0.92*(lefttoright)+(0,0.7)$) and %
+              ($(topright)- 0.13*(lefttoright)$) .. %
+              (topright) .. controls %
+              ($(topright)- 0.11*(lefttoright)$) and%
+              ($(topleft)-(head)+0.95*(lefttoright)$) .. %
+              ($(topleft)-(head)+0.82*(lefttoright)$);
+
+              \draw[draw=none, right color=backgroundlightcolor, left
+              color=backgrounddarkcolor]
+              ($(topleft)-(head)+0.83*(lefttoright)$) .. controls
+              ($(topleft)-(head)+0.97*(lefttoright)+(0,0.2)$) and %
+              ($(topright)- 0.08*(lefttoright)$) .. %
+              (topright) .. controls %
+              ($(topright)- 0.06*(lefttoright)$) and %
+              ($(topleft)-(head)+0.99*(lefttoright)$) .. %
+              ($(topleft)-(head)+0.85*(lefttoright)$);
+              
+            }{
+
+              %%%%% template N3
+              \ifthenelse{\equal{\backgroundtemplate}{3}}{
+                \draw[draw=none, bottom color=backgroundlightcolor, top
+                color=backgrounddarkcolor]%
+                ($(topleft)-(head)$) rectangle (topright);
+
+                \draw[draw=none, top color=backgroundlightcolor, bottom
+                color=backgrounddarkcolor]%
+                (bottomleft) rectangle ($(lefttoright)+(0.5,0)+(foot)$);
+
+              }{       
+
+                %%%%% template N2
+                \ifthenelse{\equal{\backgroundtemplate}{2}}{
+                  \draw[draw=none, top color=backgroundlightcolor, 
+                  bottom color=backgrounddarkcolor]%
+                  (0,0) rectangle ($(\paperwidth,\paperheight)+(10,10)$);
+                }{ 
+
+                  %%%%% template N1
+                  %% the default template
+                  % \ifthenelse{\equal{\backgroundtemplate}{1}}{
+                  \draw[draw=none, bottom color=backgroundlightcolor, 
+                  top color=backgrounddarkcolor]%
+                  (bottomleft) rectangle (topright);
+
+                  \foreach \a in {10,20,...,80}{
+                    \draw[backgroundlightcolor!50!backgrounddarkcolor, line width=0.1cm] 
+                    (0,0) -- ($(0,0)!1!\a:(120+rnd*40,0)$); }
+
+                  \foreach \i in {1,2,...,35}{
+                    \begin{scope}[shift={($(rand*60,rand*70)$)}]
+                      \draw[backgroundlightcolor!80!, line width=0.1cm]
+                      ($0.5*(topright)$) circle (4); 
+                    \end{scope}
+                  }        
+                  % }{}
+
+                }            
+              }
+            }
+          }
+        }
+      \end{tikzpicture}
+    }}
+}
+
+
+
+\tikzset{
+  frame/.style={rounded corners=30, line width=0.4cm, inner sep=1cm},
+  frametwo/.style={thick, inner sep=1cm, %
+    drop shadow={shadow xshift=0.2cm, shadow yshift=-0.2cm, opacity=0.3}, %
+    decorate, decoration={random steps,segment length=1cm,amplitude=0.15cm}
+    % decorate, decoration={penciline,amplitude=0.2cm}
+  },% 
+  framethree/.style={rounded corners=30, inner sep=1cm},%
+  framefour/.style={rounded corners=20, thick, inner sep=1cm, %
+    drop shadow={shadow xshift=0.3cm, shadow yshift=-0.3cm, opacity=0.3}},%
+  framefive/.style={rounded corners=20, inner sep=1cm},%
+  innerframe/.style={rounded corners=15, line width=0.2cm, inner sep=0.5cm},
+  rectanglesplittwo/.style={rectangle split, rectangle split parts=2, %
+    rectangle split part align={left,left}}, %   
+}
+
+
+
+
+%%%%% -------- Initialization of the poster layout -------- %%%%%
+\newcommand{\initializesizeandshifts}{  
+  %% these coordinates depend on the size of the document
+  \coordinate (southwest) at ($(\margin,\margin)-0.5*(\paperwidth,\paperheight) 
+  + (0.001,0.001)$); %
+  \coordinate (northeast) at ($(0,0)-(southwest)$);
+  
+  %% shifts for the blocks and autowidth
+  %% if colnumber = 2 => xshift=(\paperwidth-2*\margin -\blockspacing)/colnumber/2 +
+  %% \blockspacing/2
+  %%                                   awidth=(\paperwidth-2*\margin-\blockspacing)/colnumber - 
+  %% 0.3 
+  %% if colnumber = 3 => xshift=(\paperwidth-2*\marging -2*\blockspacing)/colnumber +
+  %% \blockspacing   
+  %%                                   awidth=(\paperwidth-2*\margin-2*\blockspacing)/colnumber - 
+  %% 0.3 
+  \ifthenelse{\equal{\colnumber}{2}}{%
+    \coordinate (xshift) at 
+    ($0.5/\colnumber*(\paperwidth,0) - 1/\colnumber*(\margin,0) -
+    0.5/\colnumber*(\blockspacing,0) + 0.5*(\blockspacing,0)$); 
+
+    \coordinate (autowidth) at
+    ($1/\colnumber*(\paperwidth,0) - 2/\colnumber*(\margin,0) -
+    1/\colnumber*(\blockspacing,0) - (0.3,0)$);
+  }{
+    % \ifthenelse{\equal{\colnumber}{3}}{%
+    \coordinate (xshift) at 
+    ($1/\colnumber*(\paperwidth,0) - 2/\colnumber*(\margin,0) -
+    2/\colnumber*(\blockspacing,0) + (\blockspacing,0) $); 
+    
+    \coordinate (autowidth) at
+    ($1/\colnumber*(\paperwidth,0) - 2/\colnumber*(\margin,0) -
+    2/\colnumber*(\blockspacing,0) - (0.3,0)$); 
+    % }{}
+  }
+
+  
+  %% yshift = \blockspacing 
+  \coordinate (yshift) at ($(0,\blockspacing)$);
+  
+  
+  %% the boundaries of the content
+  \clip (southwest) rectangle (northeast);
+  \draw[draw=none] (southwest) rectangle (northeast);
+
+  \coordinate (currenty) at ($0.5*(0,\paperheight)-(0,\margin)$);
+}
+
+
+
+\newcommand{\setxshift}[1]{
+  \coordinate (xshift) at (#1,0);
+}
+
+\newcommand{\setyshift}[1]{
+  \coordinate (yshift) at (0,#1);
+}
+
+\newcommand{\startsecondcolumn}{
+  \ifthenelse{\equal{\colnumber}{2}}{
+    \coordinate (currenty) at ($(firstrow)+(xshift)-(yshift)$);
+  }{
+    % \ifthenelse{\equal{\colnumber}{3}}{
+    \coordinate (currenty) at ($(firstrow)-(yshift)$);
+    % }{}
+  }
+}
+
+\newcommand{\startthirdcolumn}{
+  \ifthenelse{\equal{\colnumber}{3}}{
+    \coordinate (currenty) at ($(firstrow)+(xshift)-(yshift)$);
+  }{}
+}
+
+
+\newcommand{\getcurrentrow}[1]{
+      \path let \p1=(#1.south) in coordinate (currentrow) at (0,\y1);
+}
+
+
+
+
+%%%%% -------- maketitle --------- %%%%%
+\makeatletter
+\def\maketitle{%
+  \vbox{%
+    \hsize\textwidth \linewidth\hsize 
+    \centering
+  %  \normalfont 
+    {\Huge \bfseries\@title\par} \vskip 1cm plus 1fil minus 0.25cm
+    {\def\and{\unskip\enspace{\rm and}\enspace}%
+      \def\And{\end{tabular}\hss \egroup \hskip \instituteshift cm plus 2fil 
+      \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\Large\bfseries}%
+      \def\AND{\end{tabular}\hss\egroup \hfil\hfil\egroup
+      \vskip 0.5cm plus 1fil minus 0.317cm
+      % hg: Changed Large to normalsize on next line
+      \hbox to \linewidth\bgroup\large \hfil\hfil
+      \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\Large\bfseries}
+      \hbox to \linewidth\bgroup\large \hfil\hfil
+      \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\Large\bfseries\@author 
+      \end{tabular}\hss\egroup
+      \hfil\hfil\egroup}
+  }
+}
+\makeatother
+
+
+% #1 - shift
+% #2 - width
+% #3 - scale
+\newcommand{\titleblock}[3][(0,0)]{
+
+  %%%%% template N2
+  \ifthenelse{\equal{\titletemplate}{2}}{
+    \node[anchor=north,text=titletextcolor,scale=#3] (title) at ($(currenty)+#1$)
+    {
+      \begin{minipage}{#2 cm}
+        \maketitle
+      \end{minipage}
+    };
+    
+    \ifthenelse{\equal{\backgroundtemplate}{2}}{
+      \path let \p1=(title.south) in coordinate (firstrow) at (0,\y1);
+    }{ % 
+      \coordinate (firstrow) at ($0.5*(0,\paperheight)-(0,\headdrawingheight)$);
+      \ifthenelse{\equal{\backgroundtemplate}{5}}{%
+        \coordinate (firstrow) at ($0.5*(0,\paperheight)-(0,\headdrawingheight)-(0,7)$);
+      }{}
+    }
+  }{
+
+    %%%%% template N1
+    %% the default template
+    % \ifthenelse{\equal{\titletemplate}{1}}{
+    \node[anchor=north, draw, frame, color=titledrawcolor, fill=titlefillcolor,
+    text=titletextcolor, scale=#3]  
+    (title) at ($(currenty)+#1$)
+    {
+      \begin{minipage}{#2 cm}
+        \vspace{1cm}
+        \maketitle
+      \end{minipage}
+    };
+    
+    \path let \p1=(title.south) in coordinate (firstrow) at (0,\y1);
+    % }{}
+  }      
+  
+  
+  \coordinate (currenty) at ($(firstrow)-(xshift)-(yshift)$);
+}
+
+
+% #1 - anchor
+% #2 - shift
+% #3 - width
+% #4 - file name
+\newcommand{\addlogo}[4][west]{
+  \node[anchor=#1] at ($(title.#1) + #2$) {\includegraphics[width=#3]{#4}};
+}
+
+
+
+
+
+
+%%%%% ---------- Macros for block nodes ---------- %%%%%
+% #1 - where
+% #2 - title
+% #3 - text
+% #4 - width
+\newcommand{\drawblocknode}[4]{
+  %% width of the minipage = width - 2 
+
+  %%%%% template N5
+  \ifthenelse{\equal{\blocknodetemplate}{5}}{
+    %% the content of the block
+    \def \blockcontent{
+      \draw let \p1=($(#4)-(2.2,0)$),\p2=($(0,\blocktitleheight cm)-(0,0.5cm)$) in 
+      node[anchor=north, text=blocktextcolor, framefive, rectangle] 
+      (box) at #1 {
+        \begin{minipage}{\x1}
+          \vspace{0.5cm}
+          {\LARGE\bfseries\textcolor{blocktitletextcolor}{#2}}\\
+          
+          \color{blocktextcolor}
+          #3
+        \end{minipage}};
+    }
+    \blockcontent
+    
+    %% the shadow above the corner
+    \begin{scope}
+      \clip (box.south west) rectangle (box.north east);
+      
+      \begin{scope}[transform canvas={xshift=-1cm, yshift=-0.8cm, rotate
+          around={-20:($(box.north east)-(10,0)$)}}] 
+        \fill[color=gray, path fading=north, opacity=0.8] ($(box.north east) -
+        (10,1)$) rectangle ($(box.north east) + (2,2.3)$);
+      \end{scope}
+    \end{scope}
+
+    %% the border
+    \def \border{%
+      [rounded corners=30] (box.south west) -- (box.north west) %
+      [rounded corners=30] -- ($(box.north east)-(9.4,0)$) 
+      [rounded corners=30] -- ($(box.north east)-(0,3.4)$) 
+      [rounded corners=30] |-  (box.south west) -- cycle
+    }
+    \draw[very thick, color=blocktitlefillcolor, fill=blockfillcolor, 
+    % drop shadow={shadow xshift=0.3cm, shadow yshift=-0.3cm, opacity=0.3}
+    ] \border;  
+    
+    %% the corner
+    \begin{scope}
+      \def \corner{ ($(box.north east)-(0,6)$) -- ($(box.north east)-(0,4.5)$) .. %
+        controls ($(box.north east)-(-0,2.7)$) and ($(box.north east)-(2.8,2.2)$)
+        .. ($(box.north east)-(3.8,4.6)$) %
+        .. controls ($(box.north east)-(8.6,0)$) ..  ($(box.north east)-(11.4,0)$) %
+        [rounded corners=30] -- ($(box.north east)-(9.4,0)$) %
+        [rounded corners=30] -- ($(box.north east)-(0,3.4)$) %
+        [rounded corners=0] -- ($(box.north east)-(0,6)$)}
+
+      \draw[blocktitlefillcolor] \corner;
+      
+      \clip \corner;
+      \begin{scope}[transform canvas={xshift=-1cm, yshift=-1.3cm, rotate
+          around={-23:($(box.north east)-(10,0)$)}}] 
+        \fill[color=blocktitlefillcolor!90] ($(box.north east) - (10,2)$)
+        rectangle ($(box.north east) + (2,3.6)$); %
+        \fill[color=blocktitlefillcolor , path fading=south, opacity=1]
+        ($(box.north east) - (10,-1.2)$) rectangle ($(box.north east) +
+        (2,1.6)$); %
+        \fill[color=blocktitlefillcolor , path fading=north, opacity=1]
+        ($(box.north east) - (10,-1.6)$) rectangle ($(box.north east) +
+        (2,2.1)$);
+      \end{scope}
+
+    \end{scope}
+    
+    \blockcontent
+    
+  }{
+
+    %%%%% template N4
+    \ifthenelse{\equal{\blocknodetemplate}{4}}{
+      %% the content of the block
+      \draw let \p1=($(#4)-(2.2,0)$),\p2=($(0,\blocktitleheight cm)-(0,0.5cm)$) in 
+      node[draw, anchor=north, color=blocktitlefillcolor, fill=blockfillcolor, 
+      text=blocktextcolor, framefour, rectangle] 
+      (box) at #1 {
+        \begin{minipage}{\x1}
+          \vspace{\y2}
+          
+          \color{blocktextcolor}
+          #3
+        \end{minipage}};
+      
+      %% the title of the block
+      \begin{scope}
+        \clip[rounded corners=20] ($(box.south west)+(0.01,0.01)$) rectangle
+        ($(box.north east)-(0.01,0.01)$); 
+
+        \draw let \p1=($(#4)-(3.2,0)$),\p2=($(0,\blocktitleheight cm)-(0,0.4cm)$)%
+        in node[anchor=bottom right corner, draw=none, %
+        bottom color=blocktitlefillcolor, top color=blocktitlefillcolor!85!,
+        text=blocktitletextcolor, rounded corners=20, inner xsep=1cm, %
+        minimum height=\y2, minimum width=\x1, %
+        shape=trapezium, shape border rotate=180, trapezium stretches=true]
+        (boxtitle) at ($(box.north west)+(1.5,0)$) {\bf\LARGE #2}
+
+        %% fading on top
+        [preaction={path fading=south,fill=blocktitlefillcolor,opacity=.4},draw=none]
+        ($(boxtitle.bottom right corner) - (3,\y2)$) rectangle
+        ($(boxtitle.bottom left corner)+(3,0)$);            
+      \end{scope}    
+
+      
+      %% decorative drawing on the title
+      \begin{scope}[even odd rule]
+        \clip[rounded corners=20] ($(boxtitle.bottom right corner)-(-0.2,0.2)$) --
+        ($(boxtitle.bottom left corner) -(0.2,0.2)$) -- (boxtitle.top left corner)
+        -- (boxtitle.top right corner) -- cycle %
+        (box.south west) rectangle (box.north east) ;
+
+        \draw[draw=none, rounded corners=20, %
+        bottom color=blocktitlefillcolor, top color=blocktitlefillcolor!85!] 
+        ($(boxtitle.bottom right corner)-(0.5,0)$) -- 
+        (boxtitle.bottom right corner) -- (boxtitle.top right corner) --
+        ($(boxtitle.bottom right corner)+(3,0)$) -- 
+        ($(boxtitle.bottom right corner)-(0.5,0)$)
+        
+        ($(boxtitle.bottom left corner)+(0.5,0)$) -- 
+        (boxtitle.bottom left corner) -- (boxtitle.top left corner) -- 
+        ($(boxtitle.bottom left corner)-(3,0)$) --
+        ($(boxtitle.bottom left corner)+(0.5,0)$) ; 
+      \end{scope}    
+      
+    }{
+
+      %%%%% template N3
+      \ifthenelse{\equal{\blocknodetemplate}{3}}{
+        %% the content of the block
+        \draw let \p1=($(#4)-(2,0)+(0.3,0)$), \p2=($(0,\blocktitleheight cm)-(0,2.4cm)$)
+        in node[draw=none, anchor=north, color=blockfillcolor,
+        text=blocktextcolor, framethree,  
+        rectanglesplittwo, rectangle split horizontal=false, %
+        rectangle split part fill={blockfillcolor, blockfillcolor}, %
+        rectangle split empty part height=\y2 
+        ]
+        (box) at #1 {
+          \nodepart{second} 
+          \begin{minipage}{\x1}
+            \color{blocktextcolor}
+            #3
+          \end{minipage}
+        };
+        
+        \draw[draw=none,left color=blocktitlefillcolor, right color=blockfillcolor]
+        (box.north west) rectangle ($(box.text split east)-(0,0.4)$);
+
+        %% the title of the block
+        \draw let \p1=($(#4)-(2,0)$) in node[framethree, anchor=north west,
+        text=blocktitletextcolor, text width=\x1] at (box.north west)  
+        {\bf\LARGE #2};  
+      }{  
+
+        %%%%% template N2
+        \ifthenelse{\equal{\blocknodetemplate}{2}}{
+          %% the content of the block
+          \draw let \p1=($(#4)-(2.3,0)$) in 
+          node[draw,anchor=north, color=blocktitlefillcolor, 
+          fill=blockfillcolor, text=blocktextcolor, frametwo, rectangle, %rounded corners=10,%
+          ] 
+          (box) at #1 {
+            \begin{minipage}{\x1}
+              \vspace{0.2cm}
+              {\LARGE\bfseries\textcolor{blocktitletextcolor}{#2}}\\
+
+              \color{blocktextcolor}
+              #3
+            \end{minipage}};
+
+        }{
+
+          %%%%% template N1
+          %% the default template
+          % \ifthenelse{\equal{\blocknodetemplate}{1}}{ 
+
+          %% the content of the block
+          \draw let \p1=($(#4)-(2,0)$) , \p2=($(0,\blocktitleheight cm)-(0,2.4cm)$)
+          in node[draw, anchor=north, color=blocktitlefillcolor, text=blocktextcolor, 
+          frame, rectanglesplittwo, rectangle split horizontal=false, 
+          rectangle split part fill={blocktitlefillcolor, blockfillcolor}, %
+          rectangle split empty part height=\y2 
+          ]
+          (box) at #1 {
+            \nodepart{second} 
+            \begin{minipage}{\x1}
+              \color{blocktextcolor}
+              #3
+            \end{minipage}
+          };
+          
+          %% the title of the block
+          \node[frame, anchor=north west, text=blocktitletextcolor] at (box.north west)
+          {\bf\LARGE #2};  
+
+          %% decorative drawing with gray color
+          %% 0.4 is the line width from frame
+          \fill[rounded corners=30, blocktitlefillcolor] 
+          let \p1=($(box.text split west)-(0,0.5) +(0.4,0)-(0.02,0)$), 
+          \p2=($(box.text split east)-(0,0.5) -(0.4,0)+(0.02,0)$) in  
+          ($(\p1)+(0,2)$) --
+          ($(\p1)-(0,2)$) -- ($(\p1)+(0,0.3)$) -- 
+          ($(\p1)+(3,0.3)$) --  ($(\p1)+(0,0.3)$)-- 
+          ($(\p1)+(0,2)$)
+          
+          ($(\p2)+(0,2)$) --
+          ($(\p2)-(0,2)$) -- ($(\p2)+(0,0.3)$) -- 
+          ($(\p2)+(-3,0.3)$) -- ($(\p2)+(0,0.3)$)-- 
+          ($(\p2)+(0,2)$); 
+          % }{}
+
+        }
+      }
+    }
+  }
+
+
+  \coordinate (currenty) at ($(box.south)-(yshift)$);
+}
+
+
+% #1 - where
+% #2 - title
+% #3 - text
+\newcommand{\blocknode}[3][(currenty)]{%($(box.south)-(yshift)$)]{%
+  \drawblocknode{#1}{#2}{#3}{autowidth}
+}
+
+
+%% Block node with varying width
+% #1 - where
+% #2 - width
+% #3 - title
+% #4 - text
+\newcommand{\blocknodew}[4][(currenty)]{%
+  %% width = (#2) - 0.3
+  %% 
+  %% 
+  \coordinate (width) at ($(#2,0) - (0.3,0)$);   
+  
+  \drawblocknode{#1}{#3}{#4}{width}
+}
+
+
+
+
+%%%%% ---------- Macros for plain and callout nodes ---------- %%%%%
+% #1 - from
+% #2 - where
+% #3 - text
+% #4 - width
+% #5 - title
+% #6 - rotate angle
+\newcommand{\drawplainblock}[6]{
+  %% width of the minipage = width - 2 
+
+  
+  \tikzset{mycallout/.style={rectangle callout, 
+      callout absolute pointer={#1}, callout pointer width=1.5cm},
+    myplainnode/.style={rectangle}}
+
+  \ifthenelse{\equal{#5}{calloutblock}}{%
+    \def \nodeshape {mycallout}
+  }{ % plain node 
+    \def \nodeshape {myplainnode}
+  }
+
+  \begin{scope}[transform canvas={rotate around={#6:#2}}]
+
+    %%%%% template N4
+    \ifthenelse{\equal{\plainblocktemplate}{4}}{
+      %% the content of the block
+      \draw let \p1=($(#4)-(2.2,0)$) in node[draw, anchor=north,
+      color=plainblocktitlefillcolor, bottom color=plainblockfillcolor, top
+      color=plainblockfillcolor!60!, text=plainblocktextcolor, 
+      framefour, \nodeshape] 
+      (note) at #2 {
+        \begin{minipage}{\x1}
+          % if plain node, draw the title
+          \ifthenelse{\equal{#5}{calloutblock}}{}{
+            \textcolor{plainblocktitletextcolor}{\Large \bf #5} 
+          }
+          \color{plainblocktextcolor}
+          #3
+        \end{minipage}};
+
+    }{
+
+      %%%%% template N3
+      \ifthenelse{\equal{\plainblocktemplate}{3}}{
+        %% the content of the block
+        \draw let \p1=($(#4)-(2,0)+(0.3,0)$) in node[draw, anchor=north,
+        color=plainblocktitlefillcolor, fill=plainblockfillcolor,
+        text=plainblocktextcolor, framethree, \nodeshape] 
+        (note) at #2 {
+          \begin{minipage}{\x1}
+            % if plain node, draw the title
+            \ifthenelse{\equal{#5}{calloutblock}}{}{
+              \textcolor{plainblocktitletextcolor}{\Large \bf #5} 
+            }
+            \color{plainblocktextcolor}
+            #3
+          \end{minipage}
+        };
+      }{  
+
+        %%%%% template N2
+        \ifthenelse{\equal{\plainblocktemplate}{2}}{
+          \def \blockcontent{ 
+            \draw let \p1=($(#4)-(2.3,0)$) in node[draw=none, anchor=north,
+            text=plainblocktextcolor, inner sep=1cm] 
+            (note) at #2 {
+              \begin{minipage}{\x1}
+                % if plain node, draw the title
+                \ifthenelse{\equal{#5}{calloutblock}}{}{
+                  \textcolor{plainblocktitletextcolor}{\Large \bf #5} 
+                }
+                \color{plainblocktextcolor}
+                #3
+              \end{minipage}};
+          }
+          \blockcontent
+          
+          %% shadow
+          \draw[draw=none, fill=gray, opacity=0.3]
+          ($(note.north east)+(-0.5,0)$) [rounded corners=40]--%
+          (note.north west) [rounded corners=0] -- %
+          ($(note.south west)$) .. %
+          controls ($0.2*(note.south west) + 0.8*(note.south east)$) .. %
+          ($(note.south east)+(-0.2,0.3)$) .. %
+          controls ($0.75*(note.south east) + 0.25*(note.north east) - (0.5,0)$) .. %
+          ($(note.north east)+(-0.5,0)$);
+          
+          %% the shape
+          \def \border{%
+            ($(note.north east)+(-0.5,0)$) [rounded corners=40]--%
+            (note.north west) [rounded corners=0] -- %
+            ($(note.south west)$) .. %
+            controls ($0.2*(note.south west) + 0.8*(note.south east)$) .. %
+            ($(note.south east)+(0,0.7)$) .. %
+            controls ($0.75*(note.south east) +0.25*(note.north east) -(0.5,0)$) .. %
+            ($(note.north east)+(-0.5,0)$)%
+          }%
+          \draw[color=plainblocktitlefillcolor, fill=plainblockfillcolor]
+          \border;
+
+          %% the shading in the left top corner
+          \begin{scope}
+            \clip \border; %
+            \begin{scope}[transform canvas={rotate around={15:(note.north west)}}]
+              \fill[plainblockfillcolor!60!black, path fading=south, opacity=0.6]%
+              (note.north west) -- +(-3,0) |- ($(note.north west) + (0,-1.2)$)
+              -- ($(note.north west) + (4,-1.2)$) |- ($(note.north west)$);
+            \end{scope}
+          \end{scope}
+
+          %% if callout, draw the connection
+          \ifthenelse{\equal{#5}{calloutblock}}{
+            \begin{scope}[even odd rule]
+              \clip[draw=none] \border (southwest) rectangle (northeast);
+
+              \draw let \p1=($(note.north east) - (note.north west)$),
+              \p2=($(note.north east) - (note.south east)$), \n1={veclen(\x1,\y2)/20}
+              in node[circle,inner sep=1cm] (cir) at (note.center) {}; 
+
+              \draw[color=plainblocktitlefillcolor, fill=plainblockfillcolor, 
+              drop shadow={shadow xshift=0.2cm, shadow yshift=-0.2cm, opacity=0.3}]
+              #1 -- (tangent cs:node=cir, point={#1}, solution=1) -- (cir.center) --
+              (tangent cs:node=cir,point={#1},solution=2) -- cycle;
+            \end{scope}
+          }{}
+
+          %% draw text again (not to mess with layers)
+          \blockcontent
+
+        }{
+
+        %%%%% template N1
+        %% the default template
+        % \ifthenelse{\equal{\plainblocktemplate}{1}}{ 
+
+          %% the content of the block
+         \def \blockcontent{ 
+           \draw let \p1=($(#4)-(2,0)$) in node[draw=none, anchor=north,
+           text=plainblocktextcolor, inner sep=1cm] 
+           (note) at #2 {
+             \begin{minipage}{\x1}
+               % if plain node, draw the title
+               \ifthenelse{\equal{#5}{calloutblock}}{}{
+                 \textcolor{plainblocktitletextcolor}{\Large \bf #5} 
+               }
+               \color{plainblocktextcolor}
+               #3
+             \end{minipage}
+           };
+         }
+         \blockcontent
+          
+
+          %% the shape
+          \def \border{%
+            [rounded corners=0] (note.south west) -- (note.north west) %
+            [rounded corners=20] -- ($(note.north east)-(4.7,0)$) 
+            [rounded corners=20] -- ($(note.north east)-(0,1.7)$) 
+            [rounded corners=0] |-  (note.south west) -- cycle
+          }
+          \fill[color=plainblockfillcolor] \border; 
+
+
+          %% the shadow of the corner
+          \fill[color=gray,opacity=0.3]
+          ($(note.north east)-(0,3)$) -- ($(note.north east)-(0,2.5)$) .. %
+          controls ($(note.north east)-(0,1.25)$) and  ($(note.north east)-(1.5,1.25)$)
+          .. ($(note.north east)-(1.9,2.5)$) %
+          .. controls ($(note.north east)-(4.5,0)$) .. 
+          ($(note.north east)-(5.7,0)$) %
+          [rounded corners=20] -- ($(note.north east)-(4.7,0)$) 
+          [rounded corners=20] -- ($(note.north east)-(0,1.7)$)  
+          [rounded corners=0] -- ($(note.north east)-(0,3)$);  
+
+          %% the corner
+          \fill[color=plainblocktitlefillcolor]
+          ($(note.north east)-(0,3)$) -- ($(note.north east)-(0,2.5)$) .. %
+          controls ($(note.north east)-(0,1.25)$) and  ($(note.north east)-(1.5,1.25)$)
+          .. ($(note.north east)-(1.9,2.3)$) %
+          .. controls ($(note.north east)-(4.5,0)$) .. 
+          ($(note.north east)-(5.7,0)$) %
+          [rounded corners=20] -- ($(note.north east)-(4.7,0)$) 
+          [rounded corners=20] -- ($(note.north east)-(0,1.7)$)  
+          [rounded corners=0] -- ($(note.north east)-(0,3)$);  
+
+          %% if callout, draw the connection
+          \ifthenelse{\equal{#5}{calloutblock}}{
+            \begin{scope}[even odd rule]
+              \clip[draw=none] \border (southwest) rectangle (northeast);
+
+              \draw let \p1=($(note.north east) - (note.north west)$),
+              \p2=($(note.north east) - (note.south east)$), \n1={veclen(\x1,\y2)/20}
+              in node[circle,inner sep=1cm] (cir) at (note.center) {}; 
+
+              \fill[color=plainblockfillcolor, fill=plainblockfillcolor]
+              #1 -- (tangent cs:node=cir, point={#1}, solution=1) -- (cir.center) --
+              (tangent cs:node=cir,point={#1},solution=2) -- cycle;
+            \end{scope}
+          }{}
+          
+          %% repeat the node
+          \blockcontent
+     
+          % }{}
+      }
+    }
+  }
+
+  \end{scope}
+}
+
+
+%% Callout node 
+% #1 - rotate angle 
+% #2 - from
+% #3 - where
+% #4 - width
+% #5 - text
+\newcommand{\calloutblock}[5][0]
+{%
+  %% width = (#4) - 0.3
+  %% 
+  %% 
+  \coordinate (width) at ($(#4,0) - (0.3,0)$);   
+  
+  \drawplainblock{#2}{#3}{#5}{width}{calloutblock}{#1}
+}
+
+
+%% Plain node
+% #1 - rotate angle 
+% #2 - where
+% #3 - width
+% #4 - title
+% #5 - text
+\newcommand{\plainblock}[5][0]{%
+  %% width = (#3) - 0.3
+  %% 
+  %% 
+  \coordinate (width) at ($(#3,0) - (0.3,0)$);   
+  
+  \drawplainblock{}{#2}{#5}{width}{#4}{#1}
+}
+
+
+
+
+
+
+% #1 - innerblocktitlefillcolor
+% #2 - title
+% #3 - text
+% should not be used inside tikzpicture environment
+\newcommand{\innerblock}[3][innerblocktitlefillcolor]{%
+  \begin{tikzpicture}
+    %% iwidth = \linewidth 
+    %% width of the minipage = iwidth - 1.2 
+    %% 
+    %% 
+    \coordinate (iwidth) at (\linewidth,0);
+
+    %%%%% template N2
+    \ifthenelse{\equal{\innerblocktemplate}{2}}{ 
+      \draw let \p1=($1/4*(iwidth)-1/4*(2.4,0)$), \p2=($3*(\p1)$) 
+      in node[draw, color=blockfillcolor, text=innerblocktextcolor, innerframe,  
+      rectanglesplittwo, rectangle split horizontal,%
+      rectangle split part fill={#1, innerblockfillcolor}, %
+      rectangle split empty part height=0.6cm
+      ]
+      (b) at (0,0) {
+        \begin{minipage}{\x1}
+          {\bf\large\textcolor{innerblocktitletextcolor}{#2}}
+        \end{minipage}
+        
+        \nodepart{second} 
+        \begin{minipage}{\x2}
+          \color{innerblocktextcolor}
+          #3
+        \end{minipage}
+      };
+    }
+    %%%%% template N1
+    {
+      \draw let \p1=($(iwidth)-(1.2,0)$) 
+      in node[draw, color=#1, text=innerblocktextcolor, 
+      innerframe,  rectanglesplittwo, rectangle split horizontal=false, 
+      rectangle split draw splits=true,
+      rectangle split part fill={#1, innerblockfillcolor}, %
+      rectangle split empty part height=0.5cm
+      ]
+      (b) at (0,0) {
+        \nodepart{second} 
+        \begin{minipage}{\x1}
+          \color{innerblocktextcolor}
+          #3
+        \end{minipage}
+      };
+      
+      %% the title of the block
+      \node[innerframe, anchor=north west, text=white, rectangle] at 
+      (b.north west) {\bf\large #2};
+
+      %% decorative drawing with colorthree
+      %% 0.2 is the line width from innerframe
+      \fill[rounded corners=15, #1] 
+      let \p1=($(b.text split west)-(0,0.4) +(0.2,0)-(0.02,0)$), 
+      \p2=($(b.text split east)-(0,0.4) -(0.2,0)+(0.02,0)$) in  
+      ($(\p1)+(0,1)$) --
+      ($(\p1)-(0,1)$) -- ($(\p1)+(0,0.3)$) -- 
+      ($(\p1)+(3,0.3)$) --  ($(\p1)+(0,0.3)$)-- 
+      ($(\p1)+(0,2)$)
+      
+      ($(\p2)+(0,1)$) --
+      ($(\p2)-(0,1)$) -- ($(\p2)+(0,0.3)$) -- 
+      ($(\p2)+(-3,0.3)$) -- ($(\p2)+(0,0.3)$)-- 
+      ($(\p2)+(0,2)$); 
+    }
+
+  \end{tikzpicture}
+}
+
+
+% #1 - color
+% #2 - text
+% should not be used inside tikzpicture environment
+\newcommand{\innerblockplain}[2][innerblocktitlefillcolor]{%
+  \begin{tikzpicture}
+    \draw let \p1=($(\linewidth,0)-(1.2,0)$) in node[draw, rectangle, 
+    color=#1, fill=innerblockfillcolor, innerframe, text=black] {
+      \begin{minipage}{\x1}
+        #2 
+      \end{minipage}
+    };
+  \end{tikzpicture}
+}
+
+
+
+
+% #1 - width
+% #2 - color
+% #3 - text
+\newcommand{\coloredboxw}[3]{
+  \vspace{0.3cm}
+  \begin{tikzpicture}
+    \draw let \p1=($(#1,0)-(1,0)$) in node[draw, rectangle, color=#2,
+    fill=#2!10!, text=black, rounded corners=20, inner sep=0.5cm] {
+      \begin{minipage}[t]{\x1}
+        #3
+      \end{minipage}};
+  \end{tikzpicture}
+  \vspace{-0.5cm}
+}
+
+% #1 - color
+% #2 - text
+\newcommand{\coloredbox}[2]{
+  \coloredboxw{\linewidth}{#1}{#2}
+}
+
+
+
+
+%% A solution for figure environment, a modified version of the solution by
+%% Stephan Thober
+%
+\makeatletter
+%% counter for figures
+\newcounter{figurecounter}
+
+%% #1 Caption
+\newenvironment{tikzfigure}[1][]{
+  \def \rememberparameter{#1}
+  \vspace{10pt}
+  \refstepcounter{figurecounter}
+  \begin{center}
+  }{
+    \ifx\rememberparameter\@empty
+    \else %nothing
+    \\[10pt]
+    {\small Fig.~\thefigurecounter: \rememberparameter}
+    \fi
+  \end{center}
+}
+
+\makeatother
+
+\endinput
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "fancytikzposter"
+%%% TeX-PDF-mode: t
+%%% save-place: t
+%%% End:
