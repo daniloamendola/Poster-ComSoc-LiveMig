@@ -17,7 +17,7 @@
 
 %% the space between the blocks
 %% default value is 2cm
-\setblockspacing{1}
+\setblockspacing{0.8}
 
 %% the height of the title stripe in block nodes, decrease it to save space
 %% default value is 3cm
@@ -116,8 +116,10 @@
 %  \texttt{botoeva@inf.unibz.it}
 %}
 \author{D. Amendola; N. Cordeschi; E. Baccarelli\\ %\vspace{20pt}
-	danilo.amendola@uniroma1.it - Computer Networks - 2015, \\ 
-	poster presentation at ComSoc Summer School '16}
+	broadcom.diet.uniroma1.it/People/Danilo-Amendola - www.daniloamendola.it \\
+	danilo.amendola@uniroma1.it - appeared on Computer Networks - 2015, \\
+	 IEEE ComSoc Summer School '16 \\
+	 19-23 June '16 - Trento (Italy)}
 
 \begin{document}
 
@@ -146,8 +148,8 @@
    \ifthenelse{\equal{\template}{2}}{ 
      \addlogo[south west]{(2,0)}{6cm}{unibz_b.png}
    }{
-     \addlogo[south west]{(1,0.5)}{6cm}{logos/ieee-comsoc.png} 
-     \addlogo[south west]{(41,1)}{7cm}{logos/ieee.jpg}
+     \addlogo[south west]{(0,0.2)}{11cm}{logos/ieee-comsoc.png} 
+     \addlogo[south west]{(38,0.5)}{9cm}{logos/ieee.jpg}
    }
 
 
@@ -156,8 +158,12 @@
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \blocknode{Abstract}
   {%\emph{
-  	Live virtual machine (VM) migration aims at enabling the dynamic balanced use of the networking/computing physical resources of virtualized datacenters, so to lead to reduced energy consumption. However, the bandwidth consumption and latency of current state-of-the-art live VM migration techniques still reduce the experienced benefits to much less than their potential. Motivated by this consideration, in this paper, we analytically characterize, prototype in software and test through field trials the optimal bandwidth manager for intra-datacenter live migration of VMs. 
-  	\Large The goal is the minimization of the migration-induced communication energy under service level agreement (SLA)-induced hard constraints on the total migration time, downtime, slowdown of the migrating applications and overall available bandwidth. For this purpose, after recognizing that the resulting (nonconvex) optimization problem is an instance of Geometric Programming, we solve it by resorting to suitably developed adaptive version of the so-called primal-dual gradient-based iterations and, then, we analytically characterize its feasibility conditions.
+  	\vspace{-10pt}
+  	\Large
+  	Live virtual machine (VM) migration \large aims at enabling the dynamic balanced use of the networking/computing physical resources 
+  	\normalsize 
+  	of virtualized datacenters, so to lead to reduced energy consumption. However, the bandwidth consumption and latency of current state-of-the-art live VM migration techniques still reduce the experienced benefits to much less than their potential. Motivated by this consideration, in this paper, we analytically characterize, prototype in software and test the optimal bandwidth manager for \Large intra-datacenter live migration of VMs. 
+  	\normalsize The goal is the \Large minimization of the migration-induced communication energy \normalsize under service level agreement (SLA)-induced \large hard constraints on the total migration time, downtime, slowdown of the migrating applications \normalsize and overall available bandwidth. For this purpose, after recognizing that the resulting (nonconvex) optimization problem is an \large instance of Geometric Programming, \Large we solve it \normalsize by resorting to suitably developed \Large adaptive version of the so-called primal-dual gradient-based iterations \normalsize and, then, we analytically characterize its feasibility conditions.
   	\normalsize
   	%Hence, we prototype the resulting bandwidth manager atop an intra-datacenter wired test-bed, and, then, test and compare its energy performance through extensive field trials. The carried out field trials point out that: (i) the \textit{energy savings} attained by the proposed bandwidth manager over the state-of-the-art ones currently utilized by Xen, KVM and VMware hypervisors are \textit{over} 40\% and \textit{approach} 66\% under strict QoS constraints;  (ii) the proposed bandwidth manager is capable to \textit{quickly adapt} to the abrupt changes possibly experienced by the dirty rates of the running applications and/or the round trip times of the utilized (possibly, congested) TCP/IP connections; and,  (iii) its actual implementation may be carried out in a \emph{distributed} and \emph{scalable} way, and it consumes \textit{less} than 1.5\% of the CPU computing power per migrated VM.
   		%}
@@ -167,90 +173,82 @@
   \blocknode%
   {Introduction and Architecture}%
   { 
-  	Virtualization is an emerging technique that allows running multiple operating systems (OSs) simultaneously on a single server. For this purpose, a special middleware layer, the virtual machine manager (VMM) or hypervisor, abstracts from physical computing/networking resources and provides the so-called virtual machines (VMs), which act like real networked computers with their own virtual resources \cite{1-portnoy}. In modern virtualized networked datacenters (VNetDCs), live migration allows to move a continuously running VM from one server to another, so to attain multiple goals, including failure tolerance and energy-saving through server consolidation/load balancing \cite{2-Xu}. Although live migration is becoming a service primitive function for the resource management of VNetDCs, it may induce slowdown of the application run by the migrating VM, as well as not negligible increments of the networking traffic and the computing-plus-networking energy consumption.
+  	Virtualization is an emerging technique that allows running multiple operating systems (OSs) simultaneously on a single server. A special middleware layer, the virtual machine manager (VMM) or hypervisor, abstracts from physical computing/networking resources. In modern virtualized networked datacenters (VNetDCs), \Large live migration allows \large to move a continuously running VM from one server to another \normalsize
+  	, so to attain multiple goals, including failure tolerance and energy-saving through server consolidation/load balancing. Although live migration is becoming a service primitive function for the resource management of VNetDCs, \Large it may induce slowdown \normalsize of the application, as well as not negligible \Large increments of the networking traffic \normalsize and the \Large computing-plus-networking energy consumption. \normalsize
   	%
   	
-  	\vspace{20pt}
-  	\begin{minipage}[t]{0.5 \linewidth}
+  	\vspace{-10pt}
+  	\begin{minipage}[t]{0.74 \linewidth}
   	\begin{tikzfigure}[Reference VNetDC architecture for intra-datacenter live VM migration. ]
   	%\includegraphics[width=0.7\columnwidth]{images/Modello.eps}
   	\includegraphics[width=0.95\columnwidth]{images/Fig1}
   	\label{fig:1}
   	\end{tikzfigure}
   	\end{minipage}
-	\begin{minipage}[t]{0.5 \linewidth}
-	Continue (resp., dotted) arrowed lines denote end-to-end TCP connections conveying migration (resp., application) traffic. Dashed-dotted arrowed lines denote signalling flows for implementing the resource profiling and migration plan. APP: application; VMM: virtual machine manager; OS: operating system; HW: networking/computing hardware; EVS: external virtual switch; VNIC: virtual network interface card; NIC: physical network interface card; NAS: network-attached storage.
+	\begin{minipage}[t]{0.25 \linewidth}
+	In Fig.\ref{fig:1}:
+	\small Continue/dotted arrowed lines denote end-to-end TCP connections conveying migration/application) traffic. Dashed-dotted arrowed lines denote signalling flows for implementing the resource profiling and migration plan. APP: application; VMM: virtual machine manager; OS: operating system; HW: networking/computing hardware; EVS: external virtual switch; VNIC: virtual network interface card; NIC: physical network interface card; NAS: network-attached storage.
 	\end{minipage}
 	
   }
+  
+  
+   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+   %\blocknodew[($(currenty)-(3.5,0)$)]{30}{Variable Width Block Nodes} %
+   \blocknode %
+   {Pre-copy live VM migration } %
+   {
+    \vspace{-20pt}  	
+      	\begin{tikzfigure}[]
+      	\includegraphics[width=0.65\columnwidth]{images/Livemig_Figure2.png}
+      	\end{tikzfigure}
+      	
+      	\large The PeCM technique involves six stages:
+      	\vspace{-10pt}
+      	\normalsize
+      	\begin{enumerate}
+      	\item \large \textit{Pre-migration:} \normalsize resource profiling. ($T_{PM}$ seconds;)	
+      	\item \large \textit{Reservation:} \normalsize the computing/communication/storage/memory physical resources are reserved at the destination server. ($T_{RE}$ seconds);
+      	\item \large \textit{Iterative pre-copy:} \normalsize First, entire memory  of the migrating VM is sent to the destination server. Hence, the memory pages modified during the previous copy-round are re-transferred to the destination server (see Fig. \ref{fig:2}), (${T_{IP}}$ seconds);
+      	\item \large \textit{Stop-and-copy:} \normalsize the migrating VM is halted and a final memory-copy round is performed (see Fig. \ref{fig:2}). ($T_{SC}$ seconds);
+      	\item \large \textit{Commitment:} \normalsize Destination server notifies that it has received successfully. ($T_{CM}$ seconds);
+      	\item \large \textit{Re-activation:} \normalsize the I/O resources and IP address are re-attached to the VM on the destination server. ($T_{AT}$ seconds).
+      	\end{enumerate}
+   }
+   
 
   %% by default, the position of the new block node is right below the previous
   %% block node, stored in (currenty)
   %% box is the alias of the previous block, so we can refer to its boundaries
 
-  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  \blocknode{Problem setup and optimal resource allocation}%
-  {
-  	
-  	$R$ $(Mb/s)$ is the transmission rate.
-  	\begin{tikzfigure}[Time-chart of the PeCM technique.]
-  	\centering
-  	\includegraphics[width=0.65\columnwidth]{images/Fig2}
-  	%\caption{Time-chart of the PeCM technique.}
-  	\label{fig:2}
-  	\end{tikzfigure}
-  	
-  	%
-  	\begin{minipage}[t]{0.5\linewidth}
-  	  	Memory Migration Time:
-  	  	\begin{equation}
-  	  	\label{eqn_3}
-  	  	T_{MMT}~ \equiv~ T_{MMT}(R) ~\triangleq~ T_{IP}(R)+T_{SC}(R).
-  	  	\end{equation}
-  	    Total migration time $T_{TOT}$ $(s)$ is the overall duration:
-  	  	\begin{equation}
-  	  	\label{eqn_1}
-  	  	T_{TOT} \triangleq  T_{PM}+T_{RE}+T_{IP}+T_{SC}+T_{CM}+T_{AT},
-  	  	\end{equation}
-  	  	Downtime:
-  	  	\begin{equation}
-  	  	\label{eqn_2}
-  	  	T_{DT} \triangleq T_{SC}+T_{CM}+T_{AT},
-  	  	\end{equation}
-  	\end{minipage}
-  	%
-  	\begin{minipage}[t]{0.5 \linewidth}
-		\begin{tikzfigure}[]
-		\centering
-		\includegraphics[width=0.95\columnwidth]{images/table1_comnet.png}
-		\end{tikzfigure}
-  	\end{minipage}
-  }
+ 
   
-  \blocknode{BroadcomLab Research Group}
-  {
-  \textit{\textbf{Keyword}}: Mobile Cloud Computing; Vehicular Cloud Computing; Big Data; Green Data Center; Communication and Computing Engineering in Cloud and Big Data; LTE; Next Generation ADSL.
-  
-  	  	%
-  	  	\begin{minipage}[b]{0.77 \linewidth}
-  	  	\LARGE BroadcomLab \\
-  		\large
-  		DIET Dept. at Sapienza University of Rome\\
-  		First floor, room 101 - Via Eudossiana, 18, Rome (Italy)\\
-  		phone: 0039 06 4458 5 366 - \textit{broadcom.diet.uniroma1.it}
-  		\end{minipage}
-  		%
-  		\begin{minipage}[b]{0.2 \linewidth}
-  		\begin{tikzfigure}
-  		\includegraphics[height=5.5cm]{logos/logosap.jpg}
-  		\end{tikzfigure}
-  		\end{minipage}
-  		
-%  	Laboratorio di Sistemi di Comunicazione a Banda Larga (BroadcomLab)
-%  	Temi: le attività di ricerca, progettazione e sviluppo del laboratorio includono:(i) ideazione, progettazione, sviluppo validazione e prototipazione di piattaforme integrate di comunicazione/calcolo per il supporto di applicazioni di Mobile Cloud Computing, Vehicular Cloud Computing e Big Data; (ii) ideazione, progettazione e sviluppo di Green Data Center su infrastrutture di rete a banda larga e larghissima; (iii) communication and computing engineering per sistemi Cloud e Big Data; (iv) progettazione e sviluppo di sistemi di comunicazione a banda larga e larghissima di tipo "radio" (LTE-A) e "cablato" (next generation ADSL).
-%  	Strumentazione: workstation e server per applicazioni networked Cloud.
-%  	Tool di simulazione: Xen, VMWare, Matlab, OMNET++, Compilatori C/C++.
-  	}
+%  \blocknode{BroadcomLab Research Group at Sapienza}
+%  {
+%  %\textit{\textbf{Keyword}}: Mobile Cloud Computing; Vehicular Cloud Computing; Big Data; Green Data Center; Communication and Computing Engineering in Cloud and Big Data; LTE; Next Generation ADSL.
+%  
+%  	  	%
+%  	  	\vspace{-10pt}
+%  	  	\begin{minipage}[t]{0.77 \linewidth}
+%  	  	%\LARGE BroadcomLab \\
+%  		\large DIET Dept. at Sapienza University of Rome\\
+%  		First floor, room 101 - Via Eudossiana, 18, Rome (Italy)\\
+%  		phone: 0039 06 4458 5 366 - \textit{broadcom.diet.uniroma1.it}
+%  		\end{minipage}
+%  		%
+%  		\begin{minipage}[t]{0.2 \linewidth}
+%  		\begin{tikzfigure}
+%	  	\vspace{-20pt}
+%  		\includegraphics[height=3.5cm]{logos/logosap.jpg}
+%  		\end{tikzfigure}
+%  		\end{minipage}
+%  		
+%		%  	Laboratorio di Sistemi di Comunicazione a Banda Larga (BroadcomLab)
+%		%  	Temi: le attività di ricerca, progettazione e sviluppo del laboratorio includono:(i) ideazione, progettazione, sviluppo validazione e prototipazione di piattaforme integrate di comunicazione/calcolo per il supporto di applicazioni di Mobile Cloud Computing, Vehicular Cloud Computing e Big Data; (ii) ideazione, progettazione e sviluppo di Green Data Center su infrastrutture di rete a banda larga e larghissima; (iii) communication and computing engineering per sistemi Cloud e Big Data; (iv) progettazione e sviluppo di sistemi di comunicazione a banda larga e larghissima di tipo "radio" (LTE-A) e "cablato" (next generation ADSL).
+%		%  	Strumentazione: workstation e server per applicazioni networked Cloud.
+%		%  	Tool di simulazione: Xen, VMWare, Matlab, OMNET++, Compilatori C/C++.
+%  	}
+
 %  \vspace{3cm}
 %  \blocknode{Authors}
 %  {
@@ -295,28 +293,106 @@
 	\startsecondcolumn
 
 
-     %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-     %\blocknodew[($(currenty)-(3.5,0)$)]{30}{Variable Width Block Nodes} %
-     \blocknode %
-     {Pre-copy live VM migration } %
-     {
-     	
-     	\begin{tikzfigure}[]
-     	\includegraphics[width=0.7\columnwidth]{images/Livemig_Figure2.png}
-     	\end{tikzfigure}
-     	
-     	The PeCM technique involves six stages:
-     	
-     	\begin{enumerate}
-     	\item \textit{Pre-migration:} resource profiling. This stage spans $T_{PM}$ seconds;	
-     	\item\textit{Reservation:} the computing/communication/storage/memory physical resources are reserved at the destination server;
-     	\item\textit{Iterative pre-copy:} this stage is composed by $({I_{MAX}+1})$ rounds and spans ${T_{IP}}$ seconds. During the initial round, the entire memory content of the migrating VM is sent to the destination server. During the subsequent ${I_{MAX}}$ rounds, the memory pages modified during the previous round are re-transferred to the destination server (see Fig. \ref{fig:2});
-     	\item\textit{Stop-and-copy:} the migrating VM is halted and a final memory-copy roun is performed (see Fig. \ref{fig:2}). This last round spans ${T_{SC}}$ seconds;
-     	\item\textit{Commitment:} the destination server notifies that it has received successfully. $T_{CM}$ $(s)$  is the duration of this stage;
-     	\item\textit{Re-activation:} the I/O resources and IP address are re-attached to the migrated VM on the destination server. $T_{AT}$ $(s)$ is the needed time.
-     	\end{enumerate}
-     }
-
+	 %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+	 \blocknode{Problem setup and optimal resource allocation}%
+	 {
+	 	Iterative Pre-Copy Migration (PeCM) technique. $R$ $(Mb/s)$ is the transmission rate.
+	 	\begin{tikzfigure}[Time-chart of the PeCM technique.]
+	 	\centering
+	 	\includegraphics[width=0.7\columnwidth]{images/Fig2}
+	 	%\caption{Time-chart of the PeCM technique.}
+	 	\label{fig:2}
+	 	\end{tikzfigure}
+	 	
+	 	%
+%	 	\begin{minipage}[t]{0.5\linewidth}
+%	 	In formula:
+%	 	
+%	 	Memory Migration Time
+%	 	\begin{equation}
+%	 	\label{eqn_3}
+%	 	T_{MMT}~ \equiv~ T_{MMT}(R) ~\triangleq~ T_{IP}(R)+T_{SC}(R),
+%	 	\end{equation}
+%	 	Total migration time $T_{TOT}$ $(s)$ is the overall duration
+%	 	\begin{equation}
+%	 	\label{eqn_1}
+%	 	T_{TOT} \triangleq  T_{PM}+T_{RE}+T_{IP}+T_{SC}+T_{CM}+T_{AT},
+%	 	\end{equation}
+%	 	and Downtime:
+%	 	\begin{equation}
+%	 	\label{eqn_2}
+%	 	T_{DT} \triangleq T_{SC}+T_{CM}+T_{AT}.
+%	 	\end{equation}
+%	 	\end{minipage}
+%	 	%
+%	 	\begin{minipage}[t]{0.5 \linewidth}
+%	 	\begin{tikzfigure}[]
+%	 	\centering
+%	 	\includegraphics[width=0.95\columnwidth]{images/table1_comnet.png}
+%	 	\end{tikzfigure}
+%	 	\end{minipage}
+		
+		The total communication energy $\mathcal{E}_{TOT}$ $(J)$ consumed during the migration process:
+		\begin{equation}
+		\mathcal{E}_{TOT} \equiv \mathcal{E}_{TOT}(R) =\left\{K_{0}M_{0}R^{\alpha -1} 
+		\left[1+\theta \left(\sum_{i=1}^{I_{MAX}+1}(\overline{\textit{w}}/R)^i\right)\right]\right\}+ \mathcal{E}_{SETUP},
+		\end{equation}
+%			 we arrive at the following closed-form formula for the total volume
+%			 $V_{TOT}$ $(Mb)$ of the migrated data:
+%			 \begin{equation}
+%			 \label{eqn_12}
+%			 V_{TOT} \triangleq \sum_{i=0}^{I_{MAX}+1}V_{i} = M_{0}[1+\theta (\sum_{i=1}^{I_{MAX}+1}(\overline{\textit{w}}/R)^i)].
+%			 \end{equation}
+		
+		The considered QoS Bandwidth Manager Optimization Problem is formally defined as in:
+		
+		\begin{minipage}[t]{0.5 \linewidth}
+			\begin{equation}
+			\nonumber
+			\label{eqn_18.1}
+			\min_{R\geq 0}~\mathcal{E}_{TOT}(R),
+			\end{equation}
+			\begin{equation}
+			\nonumber
+			\label{eqn_18.2}
+			\mbox{\emph{ s.t.: constraints in \eqref{eqn_13}, \eqref{eqn_14}, \eqref{eqn_15} and \eqref{eqn_17} }}.	
+			\end{equation}
+			%
+			\begin{equation}
+			%\nonumber
+			\label{eqn_13}
+			\Psi_{1}(R) \triangleq \theta[(T_{MMT}(R)/\Delta_{MMT})-1] \leq 0, 
+			\end{equation}
+		\end{minipage}
+		%\begin{align}
+		\begin{minipage}[t]{0.5 \linewidth}
+			\begin{equation}
+			%\nonumber
+			\label{eqn_14}
+			\Psi_{2}(R) \triangleq [(T_{SC}(R)/\Delta_{SC})-1] \leq 0.
+			\end{equation}
+			%
+			\begin{equation}
+			%\nonumber
+			\label{eqn_15}
+			\Psi_{3}(R) \triangleq \theta [(\beta\overline{\textit{w}} /R)-1] \leq 0.
+			\end{equation}
+			%
+			\begin{equation}
+			%\nonumber
+			\label{eqn_17}
+			(R/\widehat{R})-1 \leq 0,
+			\end{equation}
+			%
+			\begin{equation}
+			\nonumber
+			\label{eqn_16}
+			\widehat{R}\triangleq \{ R_{MAX};~\rho_{MAX}R_{TOT}\}, 
+			\end{equation}
+		\end{minipage}
+		
+		
+	}
 
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
@@ -325,11 +401,16 @@
   {Tracking capabilities under connection phenomena} %
   {
   	
+  	How our solution perform under variable connection phenomena:
+  	\begin{itemize}
+		\item left) Case of time-varying dirty pages rate: ${\overline{\textit{w}}}$
+		\item right)  Case of time-varying connection quality: $K_{0}$ \small (is the summerized value that model the overall effect on the performed migration of the aggregate traﬃc supported by the datacenter connection).\normalsize
+  	\end{itemize}
   	
   	\vspace{-30pt}
   		\begin{minipage}[t]{1.0 \linewidth}
   		\flushleft
-  		\begin{tikzfigure}[Time evolutions (in the \textit{n} index) of the energy consumption of the proposed bandwidth manager at: $\widehat{R}= 900$ $(Mb/s)$, ${M_{0}=512}$ $(Mb)$, $\beta=1.15$, $\Delta_{MMT}=13.5$ $(s)$,  $\Delta_{SC}=0.6$ $(s)$, $\widetilde{I}_{MAX}=3$, and $\gamma=100$ for the application scenario of Section \ref{sec:7.3}.  (a) Case of time-varying ${\overline{\textit{w}}}$; (b) Case of time-varying $K_{0}$.]
+  		\begin{tikzfigure}[Time evolutions (in the \textit{n} index) of the energy consumption of the proposed bandwidth manager at: $\widehat{R}= 900$ $(Mb/s)$, ${M_{0}=512}$ $(Mb)$, $\beta=1.15$, $\Delta_{MMT}=13.5$ $(s)$,  $\Delta_{SC}=0.6$ $(s)$, $\widetilde{I}_{MAX}=3$, and $\gamma=100$.  (a) Case of time-varying ${\overline{\textit{w}}}$; (b) Case of time-varying $K_{0}$.]
   		\includegraphics[width=0.45\columnwidth]{images/Fig3a} %\\
   		 %\label{fig:3a}
   		% \vspace{10pt}
@@ -349,7 +430,7 @@
      %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
      %\blocknodew[($(currenty)-(3.5,0)$)]{30}{Variable Width Block Nodes} %
      \blocknode %
-     {Imax formula, validation results} %
+     {$I_{max}$ formula, validation results} %
      {
      	We claim that the optimized setting: $\widetilde{I}_{MAX}$ of ${I}_{MAX}$ is obtained by computing the value with the equality:
      	\begin{equation}

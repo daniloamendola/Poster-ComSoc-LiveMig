@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.22)  9 JUN 2016 17:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.22)  10 JUN 2016 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -688,18 +688,18 @@ File: t1kurier.fd 2008/07/22 v0.995 font definition file for T1/kurier (MW)
 (./Poster_ComSoc_summer_school_20150609.aux)
 \openout1 = `Poster_ComSoc_summer_school_20150609.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
 
 ABD: EveryShipout initializing macros
 (c:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -796,24 +796,24 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Try loading font information for OT1+kurierm on input line 
-142.
+144.
 (c:/texlive/2015/texmf-dist/tex/latex/kurier/ot1kurierm.fd
 File: ot1kurierm.fd 2005/10/03 v1.2 font definition file for OT1/kurierm (MW)
 )
 LaTeX Font Info:    Try loading font information for OML+kurier on input line 1
-42.
+44.
 
 (c:/texlive/2015/texmf-dist/tex/latex/kurier/omlkurier.fd
 File: omlkurier.fd 2008/07/22 v0.995 font definition file for OML/kurier (MW)
 )
 LaTeX Font Info:    Try loading font information for OMS+kurier on input line 1
-42.
+44.
 
 (c:/texlive/2015/texmf-dist/tex/latex/kurier/omskurier.fd
 File: omskurier.fd 2008/07/22 v0.995 font definition file for OMS/kurier (MW)
 )
 LaTeX Font Info:    Try loading font information for OMX+kurier on input line 1
-42.
+44.
 
 (c:/texlive/2015/texmf-dist/tex/latex/kurier/omxkurier.fd
 File: omxkurier.fd 2008/07/22 v0.995 font definition file for OMX/kurier (MW)
@@ -822,21 +822,14 @@ File: omxkurier.fd 2008/07/22 v0.995 font definition file for OMX/kurier (MW)
 File: logos/ieee-comsoc.png Graphic file (type png)
 
 <use logos/ieee-comsoc.png>
-Package pdftex.def Info: logos/ieee-comsoc.png used on input line 151.
-(pdftex.def)             Requested size: 170.71652pt x 65.97311pt.
+Package pdftex.def Info: logos/ieee-comsoc.png used on input line 153.
+(pdftex.def)             Requested size: 312.9803pt x 120.95071pt.
  <logos/ieee.jpg, id=31, 301.125pt x 87.32625pt>
 File: logos/ieee.jpg Graphic file (type jpg)
 
 <use logos/ieee.jpg>
-Package pdftex.def Info: logos/ieee.jpg used on input line 151.
-(pdftex.def)             Requested size: 199.16928pt x 57.76074pt.
-
-
-LaTeX Warning: Citation `1-portnoy' on page 1 undefined on input line 185.
-
-
-LaTeX Warning: Citation `2-Xu' on page 1 undefined on input line 185.
-
+Package pdftex.def Info: logos/ieee.jpg used on input line 153.
+(pdftex.def)             Requested size: 256.0748pt x 74.26897pt.
 Package epstopdf Info: Source file: <images/Fig1.eps>
 (epstopdf)                    date: 2015-06-24 12:42:26
 (epstopdf)                    size: 13584209 bytes
@@ -845,20 +838,97 @@ Package epstopdf Info: Source file: <images/Fig1.eps>
 (epstopdf)                    size: 330582 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/Fig1-eps-converted-
 to.pdf images/Fig1.eps>
-(epstopdf)             \includegraphics on input line 185.
+(epstopdf)             \includegraphics on input line 193.
 Package epstopdf Info: Output file is already uptodate.
+
 <images/Fig1-eps-converted-to.pdf, id=32, 440.64626pt x 294.09875pt>
 File: images/Fig1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/Fig1-eps-converted-to.pdf>
-Package pdftex.def Info: images/Fig1-eps-converted-to.pdf used on input line 18
-5.
-(pdftex.def)             Requested size: 476.40433pt x 317.97643pt.
+Package pdftex.def Info: images/Fig1-eps-converted-to.pdf used on input line 19
+3.
+(pdftex.def)             Requested size: 707.08385pt x 471.94528pt.
 
-Overfull \hbox (5.52335pt too wide) in paragraph at lines 185--185
-[][] [] 
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 ar-rowed lines de-note
  []
 
+
+Underfull \hbox (badness 4940) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 end-to-end TCP con-nec-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 tions con-vey-ing mi-gra-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 tion/application) traf-fic.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 Dashed-dotted ar-rowed
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 lines de-note sig-nalling
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 flows for im-ple-ment-ing
+ []
+
+
+Underfull \hbox (badness 7558) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 mi-gra-tion plan. APP:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 ma-chine man-ager; OS:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 op-er-at-ing sys-tem; HW:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 net-work-ing/computing
+ []
+
+
+Underfull \hbox (badness 2818) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 hard-ware; EVS: ex-ter-nal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 net-work in-ter-face card;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 NIC: phys-i-cal net-work
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+\T1/kurier/m/n/20.74 in-ter-face card; NAS:
+ []
+
+<images/Livemig_Figure2.png, id=33, 1420.3464pt x 969.8634pt>
+File: images/Livemig_Figure2.png Graphic file (type png)
+
+<use images/Livemig_Figure2.png>
+Package pdftex.def Info: images/Livemig_Figure2.png used on input line 217.
+(pdftex.def)             Requested size: 653.76707pt x 446.42377pt.
 Package epstopdf Info: Source file: <images/Fig2.eps>
 (epstopdf)                    date: 2015-06-24 12:43:05
 (epstopdf)                    size: 15805742 bytes
@@ -867,44 +937,21 @@ Package epstopdf Info: Source file: <images/Fig2.eps>
 (epstopdf)                    size: 320503 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/Fig2-eps-converted-
 to.pdf images/Fig2.eps>
-(epstopdf)             \includegraphics on input line 228.
+(epstopdf)             \includegraphics on input line 395.
 Package epstopdf Info: Output file is already uptodate.
-<images/Fig2-eps-converted-to.pdf, id=33, 626.34pt x 240.9pt>
+
+<images/Fig2-eps-converted-to.pdf, id=34, 626.34pt x 240.9pt>
 File: images/Fig2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/Fig2-eps-converted-to.pdf>
-Package pdftex.def Info: images/Fig2-eps-converted-to.pdf used on input line 22
-8.
-(pdftex.def)             Requested size: 651.9177pt x 250.74695pt.
+Package pdftex.def Info: images/Fig2-eps-converted-to.pdf used on input line 39
+5.
+(pdftex.def)             Requested size: 704.0604pt x 270.80229pt.
 
-<images/table1_comnet.png, id=34, 653.44125pt x 464.4853pt>
-File: images/table1_comnet.png Graphic file (type png)
-
-<use images/table1_comnet.png>
-Package pdftex.def Info: images/table1_comnet.png used on input line 228.
-(pdftex.def)             Requested size: 476.40433pt x 338.63911pt.
-
-Overfull \hbox (5.52335pt too wide) in paragraph at lines 228--228
-[][] []
+Overfull \hbox (5.52336pt too wide) in paragraph at lines 395--395
+[][] [] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 228--228
-
- []
-
-<logos/logosap.jpg, id=35, 210.7875pt x 243.91125pt>
-File: logos/logosap.jpg Graphic file (type jpg)
- <use logos/logosap.jpg>
-Package pdftex.def Info: logos/logosap.jpg used on input line 253.
-(pdftex.def)             Requested size: 135.23804pt x 156.49014pt.
-
-<images/Livemig_Figure2.png, id=36, 1420.3464pt x 969.8634pt>
-File: images/Livemig_Figure2.png Graphic file (type png)
-
-<use images/Livemig_Figure2.png>
-Package pdftex.def Info: images/Livemig_Figure2.png used on input line 318.
-(pdftex.def)             Requested size: 702.06874pt x 479.39572pt.
 Package epstopdf Info: Source file: <images/Fig3a.eps>
 (epstopdf)                    date: 2015-07-02 15:05:34
 (epstopdf)                    size: 135607 bytes
@@ -913,16 +960,15 @@ Package epstopdf Info: Source file: <images/Fig3a.eps>
 (epstopdf)                    size: 14682 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/Fig3a-eps-converted
 -to.pdf images/Fig3a.eps>
-(epstopdf)             \includegraphics on input line 346.
+(epstopdf)             \includegraphics on input line 427.
 Package epstopdf Info: Output file is already uptodate.
-
-<images/Fig3a-eps-converted-to.pdf, id=37, 583.17876pt x 265.99374pt>
+<images/Fig3a-eps-converted-to.pdf, id=35, 583.17876pt x 265.99374pt>
 File: images/Fig3a-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/Fig3a-eps-converted-to.pdf>
-Package pdftex.def Info: images/Fig3a-eps-converted-to.pdf used on input line 3
-46.
-(pdftex.def)             Requested size: 451.32881pt x 205.86296pt.
+Package pdftex.def Info: images/Fig3a-eps-converted-to.pdf used on input line 4
+27.
+(pdftex.def)             Requested size: 452.60916pt x 206.44336pt.
 Package epstopdf Info: Source file: <images/Fig3b.eps>
 (epstopdf)                    date: 2015-07-02 15:07:00
 (epstopdf)                    size: 133759 bytes
@@ -931,22 +977,18 @@ Package epstopdf Info: Source file: <images/Fig3b.eps>
 (epstopdf)                    size: 14061 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/Fig3b-eps-converted
 -to.pdf images/Fig3b.eps>
-(epstopdf)             \includegraphics on input line 346.
+(epstopdf)             \includegraphics on input line 427.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/Fig3b-eps-converted-to.pdf, id=38, 583.17876pt x 265.99374pt>
+<images/Fig3b-eps-converted-to.pdf, id=36, 583.17876pt x 265.99374pt>
 File: images/Fig3b-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/Fig3b-eps-converted-to.pdf>
-Package pdftex.def Info: images/Fig3b-eps-converted-to.pdf used on input line 3
-46.
-(pdftex.def)             Requested size: 451.32881pt x 205.86296pt.
+Package pdftex.def Info: images/Fig3b-eps-converted-to.pdf used on input line 4
+27.
+(pdftex.def)             Requested size: 452.60916pt x 206.44336pt.
 
-
-LaTeX Warning: Reference `sec:7.3' on page 1 undefined on input line 346.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 346--346
+Underfull \hbox (badness 10000) in paragraph at lines 427--427
 
  []
 
@@ -958,15 +1000,15 @@ Package epstopdf Info: Source file: <images/Fig4a.eps>
 (epstopdf)                    size: 10240 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/Fig4a-eps-converted
 -to.pdf images/Fig4a.eps>
-(epstopdf)             \includegraphics on input line 378.
+(epstopdf)             \includegraphics on input line 459.
 Package epstopdf Info: Output file is already uptodate.
-<images/Fig4a-eps-converted-to.pdf, id=39, 473.77pt x 265.99374pt>
+<images/Fig4a-eps-converted-to.pdf, id=37, 473.77pt x 265.99374pt>
 File: images/Fig4a-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/Fig4a-eps-converted-to.pdf>
-Package pdftex.def Info: images/Fig4a-eps-converted-to.pdf used on input line 3
-78.
-(pdftex.def)             Requested size: 330.97855pt x 185.82906pt.
+Package pdftex.def Info: images/Fig4a-eps-converted-to.pdf used on input line 4
+59.
+(pdftex.def)             Requested size: 331.91747pt x 186.35669pt.
 Package epstopdf Info: Source file: <images/Fig4b.eps>
 (epstopdf)                    date: 2015-07-02 15:11:19
 (epstopdf)                    size: 159790 bytes
@@ -975,16 +1017,16 @@ Package epstopdf Info: Source file: <images/Fig4b.eps>
 (epstopdf)                    size: 10348 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/Fig4b-eps-converted
 -to.pdf images/Fig4b.eps>
-(epstopdf)             \includegraphics on input line 378.
+(epstopdf)             \includegraphics on input line 459.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/Fig4b-eps-converted-to.pdf, id=40, 473.77pt x 265.99374pt>
+<images/Fig4b-eps-converted-to.pdf, id=38, 473.77pt x 265.99374pt>
 File: images/Fig4b-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/Fig4b-eps-converted-to.pdf>
-Package pdftex.def Info: images/Fig4b-eps-converted-to.pdf used on input line 3
-78.
-(pdftex.def)             Requested size: 320.95445pt x 180.20366pt.
+Package pdftex.def Info: images/Fig4b-eps-converted-to.pdf used on input line 4
+59.
+(pdftex.def)             Requested size: 321.86494pt x 180.71506pt.
 Package epstopdf Info: Source file: <images/Fig4c.eps>
 (epstopdf)                    date: 2015-07-02 15:10:53
 (epstopdf)                    size: 159600 bytes
@@ -993,22 +1035,22 @@ Package epstopdf Info: Source file: <images/Fig4c.eps>
 (epstopdf)                    size: 10277 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/Fig4c-eps-converted
 -to.pdf images/Fig4c.eps>
-(epstopdf)             \includegraphics on input line 378.
+(epstopdf)             \includegraphics on input line 459.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/Fig4c-eps-converted-to.pdf, id=41, 473.77pt x 265.99374pt>
+<images/Fig4c-eps-converted-to.pdf, id=39, 473.77pt x 265.99374pt>
 File: images/Fig4c-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/Fig4c-eps-converted-to.pdf>
-Package pdftex.def Info: images/Fig4c-eps-converted-to.pdf used on input line 3
-78.
-(pdftex.def)             Requested size: 330.97855pt x 185.82906pt.
+Package pdftex.def Info: images/Fig4c-eps-converted-to.pdf used on input line 4
+59.
+(pdftex.def)             Requested size: 331.91747pt x 186.35669pt.
 
 
-LaTeX Warning: Reference `sec:7.3' on page 1 undefined on input line 378.
+LaTeX Warning: Reference `sec:7.3' on page 1 undefined on input line 459.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--378
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
 
  []
 
@@ -1023,37 +1065,35 @@ Overfull \hbox (65.29169pt too wide) has occurred while \output is active
 Non-PDF special ignored!
 Non-PDF special ignored!{c:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdft
 ex.map} <./logos/ieee-comsoc.png> <./logos/ieee.jpg> <./images/Fig1-eps-convert
-ed-to.pdf> <./images/Fig2-eps-converted-to.pdf> <./images/table1_comnet.png> <.
-/logos/logosap.jpg> <./images/Livemig_Figure2.png> <./images/Fig3a-eps-converte
-d-to.pdf> <./images/Fig3b-eps-converted-to.pdf> <./images/Fig4a-eps-converted-t
-o.pdf> <./images/Fig4b-eps-converted-to.pdf> <./images/Fig4c-eps-converted-to.p
-df>] (./Poster_ComSoc_summer_school_20150609.aux)
+ed-to.pdf> <./images/Livemig_Figure2.png> <./images/Fig2-eps-converted-to.pdf> 
+<./images/Fig3a-eps-converted-to.pdf> <./images/Fig3b-eps-converted-to.pdf> <./
+images/Fig4a-eps-converted-to.pdf> <./images/Fig4b-eps-converted-to.pdf> <./ima
+ges/Fig4c-eps-converted-to.pdf>] (./Poster_ComSoc_summer_school_20150609.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16572 strings out of 493027
- 350600 string characters out of 6137684
- 500236 words of memory out of 5000000
+ 16569 strings out of 493027
+ 350447 string characters out of 6137684
+ 497856 words of memory out of 5000000
  19733 multiletter control sequences out of 15000+600000
- 85728 words of font info for 65 fonts, out of 8000000 for 9000
+ 88104 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,14n,84p,1027b,872s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,14n,84p,969b,874s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2015/texmf-dist/fonts/enc/dvips/kurier/ex-kurier.enc}{c:/texlive/
-2015/texmf-dist/fonts/enc/dvips/kurier/ec-kurier.enc}{c:/texlive/2015/texmf-dis
-t/fonts/enc/dvips/kurier/sy-kurier.enc}{c:/texlive/2015/texmf-dist/fonts/enc/dv
-ips/kurier/rm-kurier.enc}{c:/texlive/2015/texmf-dist/fonts/enc/dvips/kurier/mi-
+2015/texmf-dist/fonts/enc/dvips/kurier/sy-kurier.enc}{c:/texlive/2015/texmf-dis
+t/fonts/enc/dvips/kurier/rm-kurier.enc}{c:/texlive/2015/texmf-dist/fonts/enc/dv
+ips/kurier/mi-kurier.enc}{c:/texlive/2015/texmf-dist/fonts/enc/dvips/kurier/ec-
 kurier.enc}<c:/texlive/2015/texmf-dist/fonts/type1/public/hfbright/hfbras10.pfb
 ><c:/texlive/2015/texmf-dist/fonts/type1/nowacki/kurier/kurierb.pfb><c:/texlive
-/2015/texmf-dist/fonts/type1/nowacki/kurier/kurierbi.pfb><c:/texlive/2015/texmf
--dist/fonts/type1/nowacki/kurier/kurierr.pfb><c:/texlive/2015/texmf-dist/fonts/
-type1/nowacki/kurier/kurierri.pfb>
-Output written on Poster_ComSoc_summer_school_20150609.pdf (1 page, 1417061 byt
+/2015/texmf-dist/fonts/type1/nowacki/kurier/kurierr.pfb><c:/texlive/2015/texmf-
+dist/fonts/type1/nowacki/kurier/kurierri.pfb>
+Output written on Poster_ComSoc_summer_school_20150609.pdf (1 page, 1266620 byt
 es).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 98 compressed objects within 1 object stream
+ 152 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 175 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 
