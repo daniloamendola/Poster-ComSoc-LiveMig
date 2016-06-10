@@ -13,11 +13,11 @@
 %%%%% --------- Change here if you want ---------- %%%%%
 %% margin for the geometry package, must be changed before using the geometry package
 %% default value is 4cm
-% \setmargin{4}
+ \setmargin{2.5}
 
 %% the space between the blocks
 %% default value is 2cm
-\setblockspacing{0.8}
+\setblockspacing{0.6}
 
 %% the height of the title stripe in block nodes, decrease it to save space
 %% default value is 3cm
@@ -38,13 +38,13 @@
 %% N4 envelope-like look
 %% N5 with a wave-like head, original idea taken from
 %%%% http://fc09.deviantart.net/fs71/f/2010/322/1/1/scientific_poster_by_nabuy-d333ria.jpg
-%\usetemplate{5}
+\usetemplate{1}
 
 %% components of the templates
 %% (the maximal possible numbers are mentioned as the parameters)
 % \usecolortemplate{4}
 % \usebackgroundtemplate{5}
-% \usetitletemplate{3}
+% \usetitletemplate{5}
 % \useblocknodetemplate{5}
 % \useplainblocktemplate{4}
 % \useinnerblocktemplate{2}
@@ -118,7 +118,7 @@
 \author{D. Amendola; N. Cordeschi; E. Baccarelli\\ %\vspace{20pt}
 	broadcom.diet.uniroma1.it/People/Danilo-Amendola - www.daniloamendola.it \\
 	danilo.amendola@uniroma1.it - appeared on Computer Networks - 2015, \\
-	 IEEE ComSoc Summer School '16 \\
+	 \textbf{2nd IEEE ComSoc Summer School} \\
 	 19-23 June '16 - Trento (Italy)}
 
 \begin{document}
@@ -146,10 +146,12 @@
   %% a logo can be added to the title block
   %% #1 - anchor relative to the title block, #2 - shift, #3 - width, #3 - file name
    \ifthenelse{\equal{\template}{2}}{ 
-     \addlogo[south west]{(2,0)}{6cm}{unibz_b.png}
+     %\addlogo[south west]{(2,0)}{6cm}{unibz_b.png}
+     \addlogo[south west]{(0,0)}{13cm}{logos/ieee-comsoc.png} 
+     \addlogo[south west]{(58,-1)}{13cm}{logos/ieee-logo.png}
    }{
      \addlogo[south west]{(0,0.2)}{11cm}{logos/ieee-comsoc.png} 
-     \addlogo[south west]{(38,0.5)}{9cm}{logos/ieee.jpg}
+     \addlogo[south west]{(38,-0.5)}{11cm}{logos/ieee-logo.png}
    }
 
 
