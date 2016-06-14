@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.22)  14 JUN 2016 14:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.22)  14 JUN 2016 17:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -823,14 +823,24 @@ File: logos/ieee-comsoc.png Graphic file (type png)
 
 <use logos/ieee-comsoc.png>
 Package pdftex.def Info: logos/ieee-comsoc.png used on input line 155.
-(pdftex.def)             Requested size: 312.9803pt x 120.95071pt.
+(pdftex.def)             Requested size: 369.88582pt x 142.94176pt.
 
 <logos/ieee-logo.png, id=31, 250.9375pt x 127.47626pt>
 File: logos/ieee-logo.png Graphic file (type png)
 
 <use logos/ieee-logo.png>
 Package pdftex.def Info: logos/ieee-logo.png used on input line 155.
-(pdftex.def)             Requested size: 312.9803pt x 159.0123pt.
+(pdftex.def)             Requested size: 369.88582pt x 187.92468pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
+
+ []
+
 Package epstopdf Info: Source file: <images/Fig1.eps>
 (epstopdf)                    date: 2015-06-24 12:42:26
 (epstopdf)                    size: 13584209 bytes
@@ -841,14 +851,13 @@ Package epstopdf Info: Source file: <images/Fig1.eps>
 to.pdf images/Fig1.eps>
 (epstopdf)             \includegraphics on input line 195.
 Package epstopdf Info: Output file is already uptodate.
-
 <images/Fig1-eps-converted-to.pdf, id=32, 440.64626pt x 294.09875pt>
 File: images/Fig1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/Fig1-eps-converted-to.pdf>
 Package pdftex.def Info: images/Fig1-eps-converted-to.pdf used on input line 19
 5.
-(pdftex.def)             Requested size: 739.0876pt x 493.30617pt.
+(pdftex.def)             Requested size: 733.08685pt x 489.30324pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 195--195
 \T1/kurier/m/n/20.74 ar-rowed lines de-note
@@ -880,8 +889,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--195
  []
 
 
-Underfull \hbox (badness 6348) in paragraph at lines 195--195
-\T1/kurier/m/n/20.74 HW: net-work-ing/computing
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
+\T1/kurier/m/n/20.74 flows for im-ple-ment-ing
+ []
+
+
+Underfull \hbox (badness 1082) in paragraph at lines 195--195
+\T1/kurier/m/n/20.74 the re-source pro-fil-ing and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
+\T1/kurier/m/n/20.74 mi-gra-tion plan. APP:
+ []
+
+
+Underfull \hbox (badness 2799) in paragraph at lines 195--195
+\T1/kurier/m/n/20.74 ap-pli-ca-tion; VMM: vir-tual
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
+\T1/kurier/m/n/20.74 ma-chine man-ager; OS:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
+\T1/kurier/m/n/20.74 op-er-at-ing sys-tem; HW:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
+\T1/kurier/m/n/20.74 net-work-ing/computing
  []
 
 
@@ -890,7 +929,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--195
  []
 
 
-Underfull \hbox (badness 3019) in paragraph at lines 195--195
+Underfull \hbox (badness 2529) in paragraph at lines 195--195
 \T1/kurier/m/n/20.74 nal vir-tual switch; VNIC:
  []
 
@@ -900,8 +939,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--195
  []
 
 
-Underfull \hbox (badness 4479) in paragraph at lines 195--195
+Underfull \hbox (badness 3849) in paragraph at lines 195--195
 \T1/kurier/m/n/20.74 card; NIC: phys-i-cal net-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 219--219
+
  []
 
 <images/Livemig_Figure2.png, id=33, 1420.3464pt x 969.8634pt>
@@ -909,7 +953,12 @@ File: images/Livemig_Figure2.png Graphic file (type png)
 
 <use images/Livemig_Figure2.png>
 Package pdftex.def Info: images/Livemig_Figure2.png used on input line 219.
-(pdftex.def)             Requested size: 683.35764pt x 466.62427pt.
+(pdftex.def)             Requested size: 677.80934pt x 462.83574pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 397--397
+
+ []
+
 Package epstopdf Info: Source file: <images/Fig2.eps>
 (epstopdf)                    date: 2015-06-24 12:43:05
 (epstopdf)                    size: 15805742 bytes
@@ -920,17 +969,21 @@ Package epstopdf Info: Source file: <images/Fig2.eps>
 to.pdf images/Fig2.eps>
 (epstopdf)             \includegraphics on input line 397.
 Package epstopdf Info: Output file is already uptodate.
-
 <images/Fig2-eps-converted-to.pdf, id=34, 626.34pt x 240.9pt>
 File: images/Fig2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/Fig2-eps-converted-to.pdf>
 Package pdftex.def Info: images/Fig2-eps-converted-to.pdf used on input line 39
 7.
-(pdftex.def)             Requested size: 735.9273pt x 283.05753pt.
+(pdftex.def)             Requested size: 729.9522pt x 280.76013pt.
 
-Overfull \hbox (5.52336pt too wide) in paragraph at lines 397--397
+Overfull \hbox (5.52335pt too wide) in paragraph at lines 397--397
 [][] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 429--429
+
  []
 
 Package epstopdf Info: Source file: <images/Fig3a.eps>
@@ -949,7 +1002,7 @@ File: images/Fig3a-eps-converted-to.pdf Graphic file (type pdf)
 <use images/Fig3a-eps-converted-to.pdf>
 Package pdftex.def Info: images/Fig3a-eps-converted-to.pdf used on input line 4
 29.
-(pdftex.def)             Requested size: 473.09497pt x 215.79062pt.
+(pdftex.def)             Requested size: 469.25385pt x 214.03725pt.
 Package epstopdf Info: Source file: <images/Fig3b.eps>
 (epstopdf)                    date: 2015-07-02 15:07:00
 (epstopdf)                    size: 133759 bytes
@@ -967,9 +1020,14 @@ File: images/Fig3b-eps-converted-to.pdf Graphic file (type pdf)
 <use images/Fig3b-eps-converted-to.pdf>
 Package pdftex.def Info: images/Fig3b-eps-converted-to.pdf used on input line 4
 29.
-(pdftex.def)             Requested size: 473.09497pt x 215.79062pt.
+(pdftex.def)             Requested size: 469.25385pt x 214.03725pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 429--429
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 461--461
 
  []
 
@@ -989,7 +1047,7 @@ File: images/Fig4a-eps-converted-to.pdf Graphic file (type pdf)
 <use images/Fig4a-eps-converted-to.pdf>
 Package pdftex.def Info: images/Fig4a-eps-converted-to.pdf used on input line 4
 61.
-(pdftex.def)             Requested size: 346.9406pt x 194.79074pt.
+(pdftex.def)             Requested size: 344.12373pt x 193.21188pt.
 Package epstopdf Info: Source file: <images/Fig4b.eps>
 (epstopdf)                    date: 2015-07-02 15:11:19
 (epstopdf)                    size: 159790 bytes
@@ -1007,7 +1065,7 @@ File: images/Fig4b-eps-converted-to.pdf Graphic file (type pdf)
 <use images/Fig4b-eps-converted-to.pdf>
 Package pdftex.def Info: images/Fig4b-eps-converted-to.pdf used on input line 4
 61.
-(pdftex.def)             Requested size: 336.43307pt x 188.8934pt.
+(pdftex.def)             Requested size: 333.70152pt x 187.35919pt.
 Package epstopdf Info: Source file: <images/Fig4c.eps>
 (epstopdf)                    date: 2015-07-02 15:10:53
 (epstopdf)                    size: 159600 bytes
@@ -1025,13 +1083,9 @@ File: images/Fig4c-eps-converted-to.pdf Graphic file (type pdf)
 <use images/Fig4c-eps-converted-to.pdf>
 Package pdftex.def Info: images/Fig4c-eps-converted-to.pdf used on input line 4
 61.
-(pdftex.def)             Requested size: 346.9406pt x 194.79074pt.
+(pdftex.def)             Requested size: 344.12373pt x 193.21188pt.
 
-
-LaTeX Warning: Reference `sec:7.3' on page 1 undefined on input line 461.
-
-
-Underfull \hbox (badness 1953) in paragraph at lines 461--461
+Underfull \hbox (badness 1584) in paragraph at lines 461--461
 []\T1/kurier/m/n/24.88 We val-i-dated this for-mula with es-ten-sive sim-u-la-t
 ions, here we present some re-sults:
  []
@@ -1056,32 +1110,29 @@ nverted-to.pdf> <./images/Livemig_Figure2.png> <./images/Fig2-eps-converted-to.
 pdf> <./images/Fig3a-eps-converted-to.pdf> <./images/Fig3b-eps-converted-to.pdf
 > <./images/Fig4a-eps-converted-to.pdf> <./images/Fig4b-eps-converted-to.pdf> <
 ./images/Fig4c-eps-converted-to.pdf>]
-(./Poster_ComSoc_summer_school_20150609.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+(./Poster_ComSoc_summer_school_20150609.aux) ) 
 Here is how much of TeX's memory you used:
- 16570 strings out of 493027
- 350491 string characters out of 6137684
- 498171 words of memory out of 5000000
- 19734 multiletter control sequences out of 15000+600000
- 91234 words of font info for 76 fonts, out of 8000000 for 9000
+ 16561 strings out of 493027
+ 350921 string characters out of 6137684
+ 529715 words of memory out of 5000000
+ 19725 multiletter control sequences out of 15000+600000
+ 88104 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,14n,84p,969b,874s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2015/texmf-dist/fonts/enc/dvips/kurier/ex-kurier.enc}{c:/texlive/
-2015/texmf-dist/fonts/enc/dvips/kurier/sy-kurier.enc}{c:/texlive/2015/texmf-dis
-t/fonts/enc/dvips/kurier/rm-kurier.enc}{c:/texlive/2015/texmf-dist/fonts/enc/dv
-ips/kurier/mi-kurier.enc}{c:/texlive/2015/texmf-dist/fonts/enc/dvips/kurier/ec-
-kurier.enc}<c:/texlive/2015/texmf-dist/fonts/type1/public/hfbright/hfbras10.pfb
-><c:/texlive/2015/texmf-dist/fonts/type1/nowacki/kurier/kurierb.pfb><c:/texlive
-/2015/texmf-dist/fonts/type1/nowacki/kurier/kurierr.pfb><c:/texlive/2015/texmf-
-dist/fonts/type1/nowacki/kurier/kurierri.pfb>
-Output written on Poster_ComSoc_summer_school_20150609.pdf (1 page, 1260941 byt
+ 62i,14n,84p,969b,1080s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2015/texmf-dist/fonts
+/enc/dvips/kurier/ex-kurier.enc}{c:/texlive/2015/texmf-dist/fonts/enc/dvips/kur
+ier/sy-kurier.enc}{c:/texlive/2015/texmf-dist/fonts/enc/dvips/kurier/rm-kurier.
+enc}{c:/texlive/2015/texmf-dist/fonts/enc/dvips/kurier/mi-kurier.enc}{c:/texliv
+e/2015/texmf-dist/fonts/enc/dvips/kurier/ec-kurier.enc}<c:/texlive/2015/texmf-d
+ist/fonts/type1/public/hfbright/hfbras10.pfb><c:/texlive/2015/texmf-dist/fonts/
+type1/nowacki/kurier/kurierb.pfb><c:/texlive/2015/texmf-dist/fonts/type1/nowack
+i/kurier/kurierr.pfb><c:/texlive/2015/texmf-dist/fonts/type1/nowacki/kurier/kur
+ierri.pfb>
+Output written on Poster_ComSoc_summer_school_20150609.pdf (1 page, 1264215 byt
 es).
 PDF statistics:
- 153 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
+ 156 PDF objects out of 1000 (max. 8388607)
+ 97 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 165 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 171 words of extra memory for PDF output out of 10000 (max. 10000000)
 

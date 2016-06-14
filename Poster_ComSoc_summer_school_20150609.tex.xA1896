@@ -38,7 +38,7 @@
 %% N4 envelope-like look
 %% N5 with a wave-like head, original idea taken from
 %%%% http://fc09.deviantart.net/fs71/f/2010/322/1/1/scientific_poster_by_nabuy-d333ria.jpg
-\usetemplate{2}
+\usetemplate{1}
 
 %% components of the templates
 %% (the maximal possible numbers are mentioned as the parameters)
