@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.22)  10 JUN 2016 15:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.22)  14 JUN 2016 14:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1064,7 +1064,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  16570 strings out of 493027
  350491 string characters out of 6137684
- 498017 words of memory out of 5000000
+ 498171 words of memory out of 5000000
  19734 multiletter control sequences out of 15000+600000
  91234 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1077,7 +1077,7 @@ kurier.enc}<c:/texlive/2015/texmf-dist/fonts/type1/public/hfbright/hfbras10.pfb
 ><c:/texlive/2015/texmf-dist/fonts/type1/nowacki/kurier/kurierb.pfb><c:/texlive
 /2015/texmf-dist/fonts/type1/nowacki/kurier/kurierr.pfb><c:/texlive/2015/texmf-
 dist/fonts/type1/nowacki/kurier/kurierri.pfb>
-Output written on Poster_ComSoc_summer_school_20150609.pdf (1 page, 1260911 byt
+Output written on Poster_ComSoc_summer_school_20150609.pdf (1 page, 1260941 byt
 es).
 PDF statistics:
  153 PDF objects out of 1000 (max. 8388607)
